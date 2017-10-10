@@ -1,0 +1,34 @@
+{
+   "name": "simple-node-mvc-starter-project",
+   "description": "Simple Node.js MVC starter project",
+   "version": "0.0.0",
+   "license": "MIT",
+   "private": true,
+   "main": "server.js",
+   "repository": "dnajs/simple-node-mvc-starter-project",
+   "homepage": "https://github.com/dnajs/simple-node-mvc-starter-project",
+   "bugs": "https://github.com/dnajs/simple-node-mvc-starter-project/issues",
+   "keywords": [
+      "node",
+      "mvc",
+      "javascript"
+   ],
+   "jshintConfig": {
+      "esversion": 6,
+      "strict": "implied",
+      "undef": true,
+      "unused": true,
+      "node": true,
+      "browser": true,
+      "globals": {
+         "app": true
+      }
+   },
+   "scripts": {
+      "test": "jshint *.js web-root/*.js"
+   },
+   "dependencies": {
+      "express": "~4.16",
+      "jshint": "~2.9"
+   }
+}
