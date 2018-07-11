@@ -1,5 +1,5 @@
 # simple-node-mvc-starter-project
-<img src=http://dnajs.org/graphics/dnajs-logo.png align=right width=160 alt=logo>
+<img src=https://dnajs.org/graphics/dnajs-logo.png align=right width=160 alt=logo>
 
 *Simple Node.js MVC starter project*
 
