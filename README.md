@@ -1,7 +1,7 @@
 # simple-node-mvc-starter-project
 <img src=https://dnajs.org/graphics/dnajs-logo.png align=right width=160 alt=logo>
 
-*Simple Node.js MVC starter project*
+_Simple Node.js MVC starter project_
 
 [![Build Status](https://travis-ci.org/dnajs/simple-node-mvc-starter-project.svg)](https://travis-ci.org/dnajs/simple-node-mvc-starter-project)
 

@@ -5,7 +5,7 @@
    "license": "MIT",
    "private": true,
    "main": "server.js",
-   "repository": "dnajs/simple-node-mvc-starter-project",
+   "repository": "github:dnajs/simple-node-mvc-starter-project",
    "homepage": "https://github.com/dnajs/simple-node-mvc-starter-project",
    "bugs": "https://github.com/dnajs/simple-node-mvc-starter-project/issues",
    "keywords": [
