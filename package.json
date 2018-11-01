@@ -8,6 +8,7 @@
    "repository": "github:dnajs/simple-node-mvc-starter-project",
    "homepage": "https://github.com/dnajs/simple-node-mvc-starter-project",
    "bugs": "https://github.com/dnajs/simple-node-mvc-starter-project/issues",
+   "docs": "https://github.com/dnajs/simple-node-mvc-starter-project#readme",
    "keywords": [
       "node",
       "mvc",
@@ -28,7 +29,12 @@
       "test": "jshint *.js web-root/*.js"
    },
    "dependencies": {
-      "express": "~4.16",
-      "jshint": "~2.9"
+      "express": "~4.16"
+   },
+   "devDependencies": {
+      "dna.js": "~1.4",
+      "jquery": "~3.3",
+      "jshint": "~2.9",
+      "web-ignition": "~0.0"
    }
 }
