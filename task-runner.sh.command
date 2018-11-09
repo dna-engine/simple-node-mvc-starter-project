@@ -2,8 +2,7 @@
 # Task Runner
 
 # To make this file runnable:
-#      $ chmod +x *.sh.command
-
+#     $ chmod +x *.sh.command
 
 banner="Simple Node Server Starter Project"
 projectHome=$(cd $(dirname $0); pwd)
@@ -25,17 +24,17 @@ setupTools() {
    }
 
 runSpecs() {
-     cd $projectHome
-     echo "Specifications:"
-     npm test
-     }
+   cd $projectHome
+   echo "Specifications:"
+   npm test
+   }
 
 startServer() {
-     cd $projectHome
-     echo "Starting server:"
-     npm start
-     echo
-     }
+   cd $projectHome
+   echo "Starting server:"
+   npm start
+   echo
+   }
 
 setupTools
 runSpecs
