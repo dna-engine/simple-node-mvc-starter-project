@@ -1,7 +1,7 @@
 var app = {};
 
 app.ui = {
-   setup: function() {
+   setup: () => {
       window.console.log('app.js is running...');
       }
    };

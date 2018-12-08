@@ -10,10 +10,10 @@ app.use(express.static('web-root'));
 app.use('/rest', routes);
 
 // Server startup
-function handleServerReady() {
-    const url = 'http://localhost:' + server.address().port;
-    console.log('In your web browser, go to:');
-    console.log(url);
-    console.log('\n--- Server listening (hit CTRL-C to stop server) ---');
-    }
+const handleServerReady = () => {
+   const url = 'http://localhost:' + server.address().port;
+   console.log('In your web browser, go to:');
+   console.log(url);
+   console.log('\n--- Server listening (hit CTRL-C to stop server) ---');
+   };
 const server = app.listen(app.get('port'), handleServerReady);

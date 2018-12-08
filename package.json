@@ -32,9 +32,9 @@
       "express": "~4.16"
    },
    "devDependencies": {
-      "dna.js": "~1.4",
+      "dna.js": "~1.5",
       "jquery": "~3.3",
       "jshint": "~2.9",
-      "web-ignition": "~0.0"
+      "web-ignition": "~1.0"
    }
 }

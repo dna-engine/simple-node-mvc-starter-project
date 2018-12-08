@@ -21,16 +21,16 @@ const restError = {
 const controller = {};
 
 controller.book = {
-   save: function(response) {
+   save: (response) => {
       response.send(restError.notiImplemented);
       },
-   read: function(response, id) {
+   read: (response, id) => {
       response.send(booksDb[+id] || restError.notFound);
       },
-   delete: function(response /*, id*/) {
+   delete: (response /*, id*/) => {
       response.send(restError.notImplemented);
       },
-   list: function(response) {
+   list: (response) => {
       response.send(restError.notImplemented);
       }
    };
