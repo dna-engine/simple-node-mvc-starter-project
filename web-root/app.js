@@ -1,4 +1,4 @@
-var app = {};
+const app = {};
 
 app.ui = {
    setup: () => {
