@@ -22,19 +22,22 @@
       "node": true,
       "browser": true,
       "globals": {
-         "app": true
+         "app": true,
+         "fetchJson": false
       }
    },
    "scripts": {
-      "test": "jshint *.js web-root/*.js"
+      "test": "jshint *.js web-root"
    },
    "dependencies": {
-      "express": "~4.16"
+      "express": "~4.16",
+      "fetch-json": "~2.2"
    },
    "devDependencies": {
       "dna.js": "~1.5",
       "jquery": "~3.3",
       "jshint": "~2.9",
+      "pretty-print-json": "0.0",
       "web-ignition": "~1.0"
    }
 }

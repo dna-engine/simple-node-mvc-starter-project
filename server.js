@@ -1,6 +1,8 @@
 // Imports
-const express = require('express');
-const routes =  require('./routes.js');
+const express =   require('express');
+
+// Setup
+const routes =    require('./routes.js');
 
 // Express app
 const app = express();

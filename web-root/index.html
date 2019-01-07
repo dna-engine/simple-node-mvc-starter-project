@@ -6,6 +6,7 @@
 <title>Test</title>
 <link rel=icon       href=https://dnajs.org/graphics/bookmark.png>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6/css/all.min.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/pretty-print-json@0.0/dist/pretty-print-json.css>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna.js@1.5/dist/dna.css>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/web-ignition@1.0/dist/reset.min.css>
 </head>
@@ -13,23 +14,34 @@
 
 <header>
    <h1>Test</h1>
+   <a id=fork-me href=https://github.com/dnajs/simple-node-mvc-starter-project>Fork me on GitHub</a>
 </header>
 
 <main>
-   <p><a href=/rest/book/1><code>GET: /rest/book/1</code></a></p>
-   <p><a href=/rest/book/2><code>GET: /rest/book/2</code></a></p>
-   <p><a href=/rest/book/3><code>GET: /rest/book/3</code></a></p>
-   <p><a href=/rest/book/list><code>GET: /rest/book/list</code></a></p>
+   <p>
+      <button data-click=app.action.getBooks data-book=1>Get Book 1</button>
+      <button data-click=app.action.getBooks data-book=2>Get Book 2</button>
+      <button data-click=app.action.getBooks data-book=3>Get Book 3</button>
+      <button data-click=app.action.getBooks data-book=4>Get Book 4</button>
+      <button data-click=app.action.getBooks data-book=5>Get Book 5</button>
+   </p>
+   <p>
+      <button data-click=app.action.getBooks>Get All Books</button>
+   </p>
+   <p>
+      <cite></cite>
+   </p>
+   <pre><output></output><pre>
 </main>
 
 <footer>
-    <a href=https://github.com/dnajs/simple-node-mvc-starter-project>
-        simple-node-mvc-starter-project
-    </a>
 </footer>
 
+<script src=https://cdn.jsdelivr.net/npm/fetch-json@2.2/dist/fetch-json.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.3/dist/jquery.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/dna.js@1.5/dist/dna.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/pretty-print-json@0.0/dist/pretty-print-json.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/web-ignition@1.0/dist/library.min.js></script>
 <script src=app.js></script>
 </body>
 </html>
