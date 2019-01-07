@@ -1,14 +1,15 @@
+// Simple MVC - Server
+
 // Imports
-const express =   require('express');
+const express = require('express');
 
 // Setup
-const routes =    require('./routes.js');
+const routes = require('./routes.js');
 
 // Express app
 const app = express();
 app.set('port', 3377);
 app.use(express.static('web-root'));
-
 app.use('/rest', routes);
 
 // Server startup

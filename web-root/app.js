@@ -8,13 +8,30 @@ app.ui = {
    };
 
 app.action = {
-   getBooks: (button) => {
+   getBook: (button) => {
       const id = button.data().book;
-      const url = 'rest/book/' + (id || 'list');
+      const url = 'rest/book/' + id;
       const handleBooks = (data) => {
          $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
          };
       $('cite').text(window.location + url);
       fetchJson.get(url).then(handleBooks);
+      },
+   getBooks: () => {
+      const url = 'rest/book/list';
+      const handleBooks = (data) => {
+         $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
+         };
+      $('cite').text(window.location + url);
+      fetchJson.get(url).then(handleBooks);
+      },
+   deleteBook: (button) => {
+      const id = button.data().book;
+      const url = 'rest/book/' + id;
+      const handleBooks = (data) => {
+         $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
+         };
+      $('cite').text(window.location + url + ' [DELETE]');
+      fetchJson.delete(url).then(handleBooks);
       }
    };

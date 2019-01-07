@@ -21,6 +21,7 @@
       "unused": true,
       "node": true,
       "browser": true,
+      "jquery": true,
       "globals": {
          "app": true,
          "fetchJson": false
@@ -31,7 +32,8 @@
    },
    "dependencies": {
       "express": "~4.16",
-      "fetch-json": "~2.2"
+      "fetch-json": "~2.2",
+      "lokijs": "~1.5"
    },
    "devDependencies": {
       "dna.js": "~1.5",
