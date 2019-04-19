@@ -1,11 +1,8 @@
 // Simple MVC - Routes
 
 // Imports
-const express = require('express');
-const loki =    require('lokijs');
-
-// Setup
-const app = express();
+const express =    require('express');
+const loki =       require('lokijs');
 
 // Database
 const booksData = [
@@ -17,33 +14,53 @@ const db = new loki('library.db');
 const collection = { books: db.addCollection('books') };
 collection.books.insert(booksData);
 
-// Route table
-app.post(  '/book',      (request, response) => { controller.book.save(response); });
-app.get(   '/book/list', (request, response) => { controller.book.list(response); });
-app.get(   '/book/:id',  (request, response) => { controller.book.read(response, request.params.id); });
-app.delete('/book/:id',  (request, response) => { controller.book.delete(response, request.params.id); });
+// Model
+const model = {
+   book(object) {
+      return {
+         id:     object.id,
+         title:  object.title,
+         author: object.author
+         };
+      }
+   };
+
+// Controller
 
 const restError = {
    notFound:       { error: true, code: 404, message: 'Resource not found' },
    notImplemented: { error: true, code: 501, message: 'Not Implemented' }
    };
 
-const controller = {};
+const controller = {};  //TODO: switch to import!!!
 
 controller.book = {
-   save: (response) => {
-      response.send(restError.notiImplemented);
+   save(request, response) {
+      const resource = restError.notImplemented;
+      response.json(resource);
       },
-   read: (response, id) => {
-      response.send(collection.books.findOne({ id: +id }) || restError.notFound);
+   read(request, response) {
+      const id = request.params.id;
+      const data = collection.books.findOne({ id: +id });
+      const resource = data ? model.book(data) : restError.notFound;
+      response.json(resource);
       },
-   delete: (response, id) => {
-      console.log(id);
-      response.send(restError.notImplemented);
+   delete(request, response) {
+      const resource = restError.notImplemented;
+      response.json(resource);
       },
-   list: (response) => {
-      response.send(collection.books.find() || restError.notFound);
+   list(request, response) {
+      const data = collection.books.find();
+      const resource = data.map(model.book);
+      response.json(resource);
       }
    };
+
+// Route table
+const app = express();
+app.post(  '/book',      controller.book.save);
+app.get(   '/book/list', controller.book.list);
+app.get(   '/book/:id',  controller.book.read);
+app.delete('/book/:id',  controller.book.delete);
 
 module.exports = app;

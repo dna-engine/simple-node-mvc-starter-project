@@ -14,7 +14,7 @@ app.action = {
       const handleBooks = (data) => {
          $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
          };
-      $('cite').text(window.location + url);
+      $('cite').text(window.location + url + ' [GET]');
       fetchJson.get(url).then(handleBooks);
       },
    getBooks: () => {
@@ -22,7 +22,7 @@ app.action = {
       const handleBooks = (data) => {
          $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
          };
-      $('cite').text(window.location + url);
+      $('cite').text(window.location + url + ' [GET]');
       fetchJson.get(url).then(handleBooks);
       },
    deleteBook: (button) => {

@@ -2,21 +2,15 @@
 
 // Imports
 const express = require('express');
-
-// Setup
-const routes = require('./routes.js');
+const routes =  require('./routes');
 
 // Express app
+const defaultPort = 3000;
 const app = express();
-app.set('port', 3377);
 app.use(express.static('web-root'));
 app.use('/rest', routes);
 
 // Server startup
-const handleServerReady = () => {
-   const url = 'http://localhost:' + server.address().port;
-   console.log('In your web browser, go to:');
-   console.log(url);
-   console.log('\n--- Server listening (hit CTRL-C to stop server) ---');
-   };
-const server = app.listen(app.get('port'), handleServerReady);
+const server = app.listen(process.env.port || defaultPort);
+server.on('listening', () => console.log('--- Server listening on port:', server.address().port));
+module.exports = server;
