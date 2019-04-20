@@ -3,7 +3,7 @@
 // Imports
 const assert =          require('assert').strict;
 const fetchJson =       require('fetch-json');
-const serverListening = require('../server-listening');
+const serverListening = require('server-listening');
 
 // Setup
 serverListening.setPort({ flush: require.resolve('../server') });

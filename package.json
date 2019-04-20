@@ -41,10 +41,12 @@
    "devDependencies": {
       "dna.js": "~1.5",
       "jquery": "~3.4",
+      "jsdom": "~14.0",
       "jshint": "~2.10",
-      "mocha": "~6.1",
-      "node-fetch": "~2.3.0",
+      "mocha": "~6.1.4",
+      "node-fetch": "~2.3",
       "pretty-print-json": "~0.0",
+      "server-listening": "~0.0",
       "web-ignition": "~1.1"
    }
 }
