@@ -32,7 +32,7 @@ const restError = {
    notImplemented: { error: true, code: 501, message: 'Not Implemented' }
    };
 
-const controller = {};  //TODO: switch to import!!!
+const controller = {};
 
 controller.book = {
    save(request, response) {

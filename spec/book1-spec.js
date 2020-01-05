@@ -10,7 +10,7 @@ serverListening.setPort({ flush: require.resolve('../server') });
 const server = require('../server');
 before(() => serverListening.ready(server));
 after(() =>  serverListening.close(server));
-const baseUrl = 'http://localhost:' + server.address().port + '/rest';
+const baseUrl = 'http://localhost:' + server.address().port + '/api';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('The "/book/list" REST endpoint', () => {

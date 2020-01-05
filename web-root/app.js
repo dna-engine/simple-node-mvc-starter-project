@@ -10,7 +10,7 @@ app.ui = {
 app.action = {
    getBook: (button) => {
       const id = button.data().book;
-      const url = 'rest/book/' + id;
+      const url = 'api/book/' + id;
       const handleBooks = (data) => {
          $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
          };
@@ -18,7 +18,7 @@ app.action = {
       fetchJson.get(url).then(handleBooks);
       },
    getBooks: () => {
-      const url = 'rest/book/list';
+      const url = 'api/book/list';
       const handleBooks = (data) => {
          $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
          };
@@ -27,7 +27,7 @@ app.action = {
       },
    deleteBook: (button) => {
       const id = button.data().book;
-      const url = 'rest/book/' + id;
+      const url = 'api/book/' + id;
       const handleBooks = (data) => {
          $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
          };

@@ -3,7 +3,6 @@
    "description": "Simple Node.js MVC starter project",
    "version": "0.0.0",
    "license": "MIT",
-   "private": true,
    "main": "server.js",
    "repository": "github:dnajs/simple-node-mvc-starter-project",
    "homepage": "https://github.com/dnajs/simple-node-mvc-starter-project",
@@ -12,6 +11,7 @@
    "keywords": [
       "node",
       "mvc",
+      "jamstack",
       "javascript"
    ],
    "jshintConfig": {
@@ -34,19 +34,20 @@
       "test": "mocha spec"
    },
    "dependencies": {
-      "express": "~4.16",
+      "express": "~4.17",
       "fetch-json": "~2.2",
       "lokijs": "~1.5"
    },
    "devDependencies": {
-      "dna.js": "~1.5",
+      "canvas": "~2.6",
+      "dna.js": "~1.6",
       "jquery": "~3.4",
-      "jsdom": "~14.0",
+      "jsdom": "~15.2",
       "jshint": "~2.10",
-      "mocha": "~6.1.4",
-      "node-fetch": "~2.3",
-      "pretty-print-json": "~0.0",
-      "server-listening": "~0.0",
-      "web-ignition": "~1.1"
+      "mocha": "~7.0",
+      "node-fetch": "~2.6",
+      "pretty-print-json": "~0.2",
+      "server-listening": "~0.1",
+      "web-ignition": "~1.2"
    }
 }
