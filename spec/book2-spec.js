@@ -25,4 +25,11 @@ describe('The "/book/1002" REST endpoint', () => {
       fetchJson.get(baseUrl + '/book/1002').then(handleData);
       });
 
+   it('returns the "Styling CSS3" book in async spec', async () => {
+      const data = await fetchJson.get(baseUrl + '/book/1002');
+      const actual =   data;
+      const expected = { id: 1002, title: 'Styling CSS3', author: 'Abby' };
+      assert.deepEqual(actual, expected);
+      });
+
    });
