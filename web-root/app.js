@@ -1,14 +1,13 @@
 const app = {};
 
 app.ui = {
-   setup: () => {
-      console.log('app.js is running...');
+   setup() {
       fetchJson.enableLogger();
-      }
+      },
    };
 
 app.action = {
-   getBook: (button) => {
+   getBook(button) {
       const id = button.data().book;
       const url = 'api/book/' + id;
       const handleBooks = (data) => {
@@ -17,7 +16,7 @@ app.action = {
       $('cite').text(window.location + url + ' [GET]');
       fetchJson.get(url).then(handleBooks);
       },
-   getBooks: () => {
+   getBooks() {
       const url = 'api/book/list';
       const handleBooks = (data) => {
          $('output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
@@ -25,7 +24,7 @@ app.action = {
       $('cite').text(window.location + url + ' [GET]');
       fetchJson.get(url).then(handleBooks);
       },
-   deleteBook: (button) => {
+   deleteBook(button) {
       const id = button.data().book;
       const url = 'api/book/' + id;
       const handleBooks = (data) => {
@@ -33,5 +32,5 @@ app.action = {
          };
       $('cite').text(window.location + url + ' [DELETE]');
       fetchJson.delete(url).then(handleBooks);
-      }
+      },
    };
