@@ -8,7 +8,7 @@ const loki =       require('lokijs');
 const booksData = [
    { id: 1001, title: 'Go JavaScript', author: 'Jake' },
    { id: 1002, title: 'Styling CSS3',  author: 'Abby' },
-   { id: 1003, title: 'Howdy HTML5',   author: 'Ed' }
+   { id: 1003, title: 'Howdy HTML5',   author: 'Ed' },
    ];
 const db = new loki('library.db');
 const collection = { books: db.addCollection('books') };
@@ -20,16 +20,16 @@ const model = {
       return {
          id:     object.id,
          title:  object.title,
-         author: object.author
+         author: object.author,
          };
-      }
+      },
    };
 
 // Controller
 
 const restError = {
    notFound:       { error: true, code: 404, message: 'Resource not found' },
-   notImplemented: { error: true, code: 501, message: 'Not Implemented' }
+   notImplemented: { error: true, code: 501, message: 'Not Implemented' },
    };
 
 const controller = {};
@@ -53,7 +53,7 @@ controller.book = {
       const data = collection.books.find();
       const resource = data.map(model.book);
       response.json(resource);
-      }
+      },
    };
 
 // Route table
