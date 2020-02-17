@@ -1,8 +1,8 @@
 // Simple MVC - Server
 
 // Imports
-const express = require('express');
-const routes =  require('./routes');
+const express =   require('express');
+const apiRoutes = require('./apiRoutes');
 
 // Configuration
 const defaultPort = 3000;
@@ -13,7 +13,7 @@ const app = express();
 
 // Routes
 app.use('/',    express.static('web-root', staticOptions));
-app.use('/api', routes);
+app.use('/api', apiRoutes);
 
 // Server startup
 const server = app.listen(process.env.port || defaultPort);
