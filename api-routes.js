@@ -16,11 +16,11 @@ collection.books.insert(booksData);
 
 // Model
 const model = {
-   book(object) {
+   book(data) {
       return {
-         id:        object.id,
-         title:     object.title,
-         author:    object.author,
+         id:        data.id,
+         title:     data.title,
+         author:    data.author,
          retrieved: new Date().toDateString(),
          };
       },

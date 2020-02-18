@@ -2,20 +2,23 @@
 
 // Imports
 const express =   require('express');
-const apiRoutes = require('./apiRoutes');
+const apiRoutes = require('./api-routes');
 
-// Configuration
-const defaultPort = 3000;
-const staticOptions = { setHeaders: (response) => response.setHeader('Connection', 'close') };  //disable keep-alive
+// Setup
+const webRoot = process.env.webRoot || 'web-root';
+const port =    process.env.port || 3000;
+const staticWebOptions = {
+   setHeaders: (response) => response.setHeader('Connection', 'close'),  //disable keep-alive
+   etag:       false,  //always server fresh files (avoids 304 Not Modified for html files)
+   };
 
-// Express app
+// Express app and routes
 const app = express();
-
-// Routes
-app.use('/',    express.static('web-root', staticOptions));
+app.use('/',    express.static(webRoot, staticWebOptions));
 app.use('/api', apiRoutes);
 
 // Server startup
-const server = app.listen(process.env.port || defaultPort);
+const server = app.listen(port);
 server.on('listening', () => console.log('--- Server listening on port:', server.address().port));
+server.on('close',     () => console.log('--- Sever shutdown'));
 module.exports = server;
