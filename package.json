@@ -41,7 +41,7 @@
    "devDependencies": {
       "canvas": "~2.6",
       "dna.js": "~1.6",
-      "jquery": "~3.4",
+      "jquery": "~3.5",
       "jsdom": "~16.2",
       "jshint": "~2.11",
       "mocha": "~7.0",
