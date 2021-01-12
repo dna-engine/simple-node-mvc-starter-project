@@ -27,7 +27,6 @@ const model = {
    };
 
 // Controller
-
 const restError = {
    badRequest:     { error: true, code: 400, message: 'Bad request' },
    notFound:       { error: true, code: 404, message: 'Resource not found' },
@@ -38,36 +37,36 @@ const restError = {
 const controller = {};
 
 controller.book = {
-   save(request) {
+   save(request, response) {
       console.log(request);
       const resource = restError.notImplemented;
-      return resource;
+      response.json(resource);
       },
-   read(request) {
+   read(request, response) {
       const id = request.params.id;
       const data = collection.books.findOne({ id: +id });
       const resource = data ? model.book(data) : restError.notFound;
-      return resource;
+      response.json(resource);
       },
-   list() {
+   list(request, response) {
       const resource = collection.books.find().map(model.book);
-      return resource;
+      response.json(resource);
       },
-   delete(request) {
+   delete(request, response) {
       const id = request.params.id;
       const data = collection.books.findOne({ id: +id });
       const resource = data ? restError.notImplemented : restError.notFound;
-      return resource;
+      response.json(resource);
       },
    };
 
 // Route table
 const app = express();
-const route = (handler) => (request, response) => response.json(handler(request));
-app.post(  '/book',      route(controller.book.save));
-app.get(   '/book/:id',  route(controller.book.read));
-app.get(   '/book',      route(controller.book.list));
-app.delete('/book/:id',  route(controller.book.delete));
-app.all(   '*',          route(() => restError.badRequest));
+app.use(express.json());
+app.get(   '/book',      controller.book.list);
+app.post(  '/book',      controller.book.save);
+app.get(   '/book/:id',  controller.book.read);
+app.delete('/book/:id',  controller.book.delete);
+app.all(   '*',          (request, response) => response.json(restError.badRequest));
 
 module.exports = app;

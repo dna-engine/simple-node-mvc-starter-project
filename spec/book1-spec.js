@@ -1,12 +1,12 @@
 // Mocha Specification Cases
 
 // Imports
-const assert =          require('assert').strict;
-const fetchJson =       require('fetch-json');
-const serverListening = require('server-listening');
+const assert =          require('assert');
+const { fetchJson } =   require('fetch-json');
+const { serverListening } = require('server-listening');
 
 // Setup
-serverListening.setPort({ flush: require.resolve('../server') });
+serverListening.setPort();
 const server = require('../server');
 before(() => serverListening.ready(server));
 after(() =>  serverListening.close(server));
@@ -19,7 +19,7 @@ describe('The "/book" REST endpoint', () => {
       const handleData = (data) => {
          const actual =   { array: data instanceof Array };
          const expected = { array: true };
-         assert.deepEqual(actual, expected);
+         assert.deepStrictEqual(actual, expected);
          done();
          };
       fetchJson.get(baseUrl + '/book').then(handleData);

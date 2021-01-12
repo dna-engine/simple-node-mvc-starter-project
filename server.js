@@ -14,6 +14,7 @@ const staticWebOptions = {
 
 // Express app and routes
 const app = express();
+app.use(express.json());
 app.use('/',    express.static(webRoot, staticWebOptions));
 app.use('/api', apiRoutes);
 

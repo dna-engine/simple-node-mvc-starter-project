@@ -1,12 +1,12 @@
 // Mocha Specification Cases
 
 // Imports
-const assert =          require('assert').strict;
-const serverListening = require('server-listening');
+const assert =          require('assert');
+const { serverListening } = require('server-listening');
 const { JSDOM } =       require('jsdom');
 
 // Setup
-serverListening.setPort({ flush: require.resolve('../server') });
+serverListening.setPort();
 const server = require('../server');
 const url = 'http://localhost:' + server.address().port + '/';
 const jsdomOptions = { resources: 'usable', runScripts: 'dangerously' };
@@ -26,7 +26,7 @@ describe('The web page', () => {
    it('has the correct URL -> ' + url, () => {
       const actual =   { url: dom.window.location.href };
       const expected = { url: url };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
       });
 
    it('has exactly one header, main, and footer', () => {
@@ -37,7 +37,7 @@ describe('The web page', () => {
          footer: $('body >footer').length,
          };
       const expected = { header: 1, main: 1, footer: 1 };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
       });
 
    });
@@ -51,7 +51,7 @@ describe('The document content', () => {
       const html = dom.window.document.documentElement.outerHTML;
       const actual =   { '🚀': !!html.match(/🚀/g), '🪐': !!html.match(/🪐/g) };
       const expected = { '🚀': true,                '🪐': true };
-      assert.deepEqual(actual, expected);
+      assert.deepStrictEqual(actual, expected);
       });
 
    });
