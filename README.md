@@ -3,7 +3,7 @@
 
 _Simple Node.js MVC starter project_
 
-[![Build](https://travis-ci.org/dnajs/simple-node-mvc-starter-project.svg)](https://travis-ci.org/dnajs/simple-node-mvc-starter-project)
+[![Build](https://travis-ci.com/dnajs/simple-node-mvc-starter-project.svg)](https://travis-ci.com/dnajs/simple-node-mvc-starter-project)
 
 **STATUS:** Early development (not even pre-alpha)
 
