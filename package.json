@@ -3,6 +3,7 @@
    "description": "Simple Node.js MVC starter project",
    "version": "0.0.0",
    "license": "MIT",
+   "type": "module",
    "main": "server.js",
    "repository": "github:dnajs/simple-node-mvc-starter-project",
    "homepage": "https://github.com/dnajs/simple-node-mvc-starter-project",

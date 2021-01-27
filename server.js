@@ -1,8 +1,8 @@
 // Simple MVC - Server
 
 // Imports
-const express =   require('express');
-const apiRoutes = require('./api-routes');
+import express from 'express';
+import { apiRoutes } from './api-routes.js';
 
 // Setup
 const webRoot = process.env.webRoot || 'web-root';
@@ -22,4 +22,5 @@ app.use('/api', apiRoutes);
 const server = app.listen(port);
 server.on('listening', () => console.log('--- Server listening on port:', server.address().port));
 server.on('close',     () => console.log('--- Sever shutdown'));
-module.exports = server;
+
+export { server };

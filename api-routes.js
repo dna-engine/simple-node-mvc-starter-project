@@ -1,8 +1,8 @@
 // Simple MVC - Routes
 
 // Imports
-const express = require('express');
-const loki =    require('lokijs');
+import express from 'express';
+import loki from 'lokijs';
 
 // Database
 const booksData = [
@@ -10,7 +10,7 @@ const booksData = [
    { id: 1002, title: 'Styling CSS3',  author: 'Abby' },
    { id: 1003, title: 'Howdy HTML5',   author: 'Ed' },
    ];
-const db = new loki('libX.db');
+const db = new loki('library.db');
 const collection = { books: db.addCollection('books') };
 collection.books.insert(booksData);
 
@@ -61,12 +61,12 @@ controller.book = {
    };
 
 // Route table
-const app = express();
-app.use(express.json());
-app.get(   '/book',      controller.book.list);
-app.post(  '/book',      controller.book.save);
-app.get(   '/book/:id',  controller.book.read);
-app.delete('/book/:id',  controller.book.delete);
-app.all(   '*',          (request, response) => response.json(restError.badRequest));
+const apiRoutes = express();
+apiRoutes.use(express.json());
+apiRoutes.get(   '/book',      controller.book.list);
+apiRoutes.post(  '/book',      controller.book.save);
+apiRoutes.get(   '/book/:id',  controller.book.read);
+apiRoutes.delete('/book/:id',  controller.book.delete);
+apiRoutes.all(   '*',          (request, response) => response.json(restError.badRequest));
 
-module.exports = app;
+export { apiRoutes };

@@ -1,13 +1,13 @@
 // Mocha Specification Cases
 
 // Imports
-const assert =          require('assert');
-const { serverListening } = require('server-listening');
-const { JSDOM } =       require('jsdom');
+import assert from 'assert';
+import { serverListening } from 'server-listening';
+import { JSDOM } from 'jsdom';
 
 // Setup
 serverListening.setPort();
-const server = require('../server');
+import { server } from '../server.js';
 const url = 'http://localhost:' + server.address().port + '/';
 const jsdomOptions = { resources: 'usable', runScripts: 'dangerously' };
 let dom;

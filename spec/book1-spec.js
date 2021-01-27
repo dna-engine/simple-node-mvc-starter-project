@@ -1,13 +1,13 @@
 // Mocha Specification Cases
 
 // Imports
-const assert =          require('assert');
-const { fetchJson } =   require('fetch-json');
-const { serverListening } = require('server-listening');
+import assert from 'assert';
+import { fetchJson } from 'fetch-json';
+import { serverListening } from 'server-listening';
 
 // Setup
 serverListening.setPort();
-const server = require('../server');
+import { server } from '../server.js';
 before(() => serverListening.ready(server));
 after(() =>  serverListening.close(server));
 const baseUrl = 'http://localhost:' + server.address().port + '/api';
