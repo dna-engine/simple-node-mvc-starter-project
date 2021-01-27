@@ -10,7 +10,7 @@ const booksData = [
    { id: 1002, title: 'Styling CSS3',  author: 'Abby' },
    { id: 1003, title: 'Howdy HTML5',   author: 'Ed' },
    ];
-const db = new loki('library.db');
+const db = new loki('libX.db');
 const collection = { books: db.addCollection('books') };
 collection.books.insert(booksData);
 

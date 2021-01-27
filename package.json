@@ -49,6 +49,6 @@
       "nodemon": "~2.0",
       "pretty-print-json": "~0.4",
       "server-listening": "~0.2",
-      "web-ignition": "~1.3"
+      "web-ignition": "~1.4"
    }
 }
