@@ -45,10 +45,10 @@
       "jquery": "~3.5",
       "jsdom": "~16.4",
       "jshint": "~2.12",
-      "mocha": "~8.2",
+      "mocha": "~8.3",
       "node-fetch": "~2.6",
       "nodemon": "~2.0",
-      "pretty-print-json": "~0.4",
+      "pretty-print-json": "~1.0",
       "server-listening": "~0.2",
       "web-ignition": "~1.4"
    }
