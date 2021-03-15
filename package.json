@@ -40,10 +40,10 @@
       "lokijs": "~1.5"
    },
    "devDependencies": {
-      "canvas": "~2.6",
+      "canvas": "~2.7",
       "dna.js": "~1.7",
-      "jquery": "~3.5",
-      "jsdom": "~16.4",
+      "jquery": "~3.6",
+      "jsdom": "~16.5",
       "jshint": "~2.12",
       "mocha": "~8.3",
       "node-fetch": "~2.6",
