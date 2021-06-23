@@ -1,7 +1,7 @@
 // Mocha Specification Cases
 
 // Imports
-import assert from 'assert';
+import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
 import { fetchJson } from 'fetch-json';
 import { serverListening } from 'server-listening';
 
@@ -19,8 +19,7 @@ describe('The "/book" REST endpoint', () => {
       const handleData = (data) => {
          const actual =   { array: data instanceof Array };
          const expected = { array: true };
-         assert.deepStrictEqual(actual, expected);
-         done();
+         assertDeepStrictEqual(actual, expected, done);
          };
       fetchJson.get(baseUrl + '/book').then(handleData);
       });
