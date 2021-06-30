@@ -1,6 +1,10 @@
 const app = {};
 
 app.ui = {
+   logApiCall(method, url) {
+      $('cite >code').text(method);
+      $('cite >output').text(window.location + url);
+      },
    handleBooks(data) {
       $('main >pre >output').hide().html(window.prettyPrintJson.toHtml(data)).fadeIn();
       },
@@ -10,24 +14,26 @@ app.ui = {
    };
 
 app.action = {
+   getBooks() {
+      const url = 'api/books';
+      app.ui.logApiCall('GET', url);
+      fetchJson.get(url).then(app.ui.handleBooks);
+      },
    getBook(button) {
       const id = button.data().book;
-      const url = 'api/book' + (id ? '/' + id : '');
-      $('cite >code').text('GET');
-      $('cite >output').text(window.location + url);
+      const url = 'api/books/' + id;
+      app.ui.logApiCall('GET', url);
       fetchJson.get(url).then(app.ui.handleBooks);
       },
    deleteBook(button) {
       const id = button.data().book;
-      const url = 'api/book/' + id;
-      $('cite >code').text('DELETE');
-      $('cite >output').text(window.location + url);
+      const url = 'api/books/' + id;
+      app.ui.logApiCall('DELETE', url);
       fetchJson.delete(url).then(app.ui.handleBooks);
       },
    bogus() {
       const url = 'api/bogus';
-      $('cite >code').text('GET');
-      $('cite >output').text(window.location + url);
+      app.ui.logApiCall('GET', url);
       fetchJson.get(url).then(app.ui.handleBooks);
       },
    };

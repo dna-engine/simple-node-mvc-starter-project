@@ -13,7 +13,7 @@ after(() =>  serverListening.close(server));
 const baseUrl = 'http://localhost:' + server.address().port + '/api';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-describe('The "/book" REST endpoint', () => {
+describe('The "/books" REST endpoint', () => {
 
    it('returns an array', (done) => {
       const handleData = (data) => {
@@ -21,7 +21,7 @@ describe('The "/book" REST endpoint', () => {
          const expected = { array: true };
          assertDeepStrictEqual(actual, expected, done);
          };
-      fetchJson.get(baseUrl + '/book').then(handleData);
+      fetchJson.get(baseUrl + '/books').then(handleData);
       });
 
    });

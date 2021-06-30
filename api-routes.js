@@ -63,10 +63,10 @@ controller.book = {
 // Route table
 const apiRoutes = express();
 apiRoutes.use(express.json());
-apiRoutes.get(   '/book',      controller.book.list);
-apiRoutes.post(  '/book',      controller.book.save);
-apiRoutes.get(   '/book/:id',  controller.book.read);
-apiRoutes.delete('/book/:id',  controller.book.delete);
-apiRoutes.all(   '*',          (request, response) => response.json(restError.badRequest));
+apiRoutes.get(   '/books',      controller.book.list);
+apiRoutes.post(  '/books',      controller.book.save);
+apiRoutes.get(   '/books/:id',  controller.book.read);
+apiRoutes.delete('/books/:id',  controller.book.delete);
+apiRoutes.all(   '*',           (request, response) => response.json(restError.badRequest));
 
 export { apiRoutes };
