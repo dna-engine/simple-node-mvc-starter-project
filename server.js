@@ -9,7 +9,7 @@ const webRoot = process.env.webRoot || 'web-root';
 const port =    process.env.port || 3000;
 const staticWebOptions = {
    setHeaders: (response) => response.setHeader('Connection', 'close'),  //disable keep-alive
-   etag:       false,  //always server fresh files (avoids 304 Not Modified for html files)
+   etag:       false,  //always serve fresh files (avoids 304 Not Modified for html files)
    };
 
 // Express app and routes
