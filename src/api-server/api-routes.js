@@ -38,7 +38,6 @@ const controller = {};
 
 controller.book = {
    save(request, response) {
-      console.log(request);
       const resource = restError.notImplemented;
       response.json(resource);
       },

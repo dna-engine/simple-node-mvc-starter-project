@@ -1,40 +1,35 @@
-// Mocha Specification Cases
+// Mocha Specification Suite
 
 // Imports
+import puppeteer from 'puppeteer';
 import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
-import { serverListening } from 'server-listening';
-import { JSDOM } from 'jsdom';
+import { browserReady } from 'puppeteer-browser-ready';
 
 // Setup
-serverListening.setPort();
-import { server } from '../server.js';
-const url = 'http://localhost:' + server.address().port + '/';
-const jsdomOptions = { resources: 'usable', runScripts: 'dangerously' };
-let dom;
-const loadWebPage = () => JSDOM.fromURL(url, jsdomOptions)
-   .then(serverListening.jsdomOnLoad)
-   .then((jsdom) => dom = jsdom);
-const closeWebPage = () => serverListening.jsdomCloseWindow(dom);
-before(() => serverListening.ready(server));
-after(() =>  serverListening.close(server));
+const webRoot = process.env.webRoot || 'src/web-app';
+let http;  //fields: server, terminator, folder, url, port, verbose
+let web;   //fields: browser, page, response, status, location, title, html, $
+const loadWebPage =  async () => web = await puppeteer.launch().then(browserReady.goto(http.url));
+const closeWebPage = async () => await browserReady.close(web);
+before(async () => http = await browserReady.startWebServer({ folder: webRoot }));
+after(async () =>  await browserReady.shutdownWebServer(http));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('The web page', () => {
    before(loadWebPage);
    after(closeWebPage);
 
-   it('has the correct URL -> ' + url, () => {
-      const actual =   { url: dom.window.location.href };
-      const expected = { url: url };
+   it('has the correct URL', () => {
+      const actual =   { status: web.status, url: web.location.href };
+      const expected = { status: 200,        url: http.url };
       assertDeepStrictEqual(actual, expected);
       });
 
    it('has exactly one header, main, and footer', () => {
-      const $ = dom.window.$;
       const actual =   {
-         header: $('body >header').length,
-         main:   $('body >main').length,
-         footer: $('body >footer').length,
+         header: web.$('body >header').length,
+         main:   web.$('body >main').length,
+         footer: web.$('body >footer').length,
          };
       const expected = { header: 1, main: 1, footer: 1 };
       assertDeepStrictEqual(actual, expected);
@@ -48,9 +43,8 @@ describe('The document content', () => {
    after(closeWebPage);
 
    it('has a 🚀 traveling to 🪐!', () => {
-      const html = dom.window.document.documentElement.outerHTML;
-      const actual =   { '🚀': !!html.match(/🚀/g), '🪐': !!html.match(/🪐/g) };
-      const expected = { '🚀': true,                '🪐': true };
+      const actual =   { '🚀': !!web.html.match(/🚀/g), '🪐': !!web.html.match(/🪐/g) };
+      const expected = { '🚀': true,                    '🪐': true };
       assertDeepStrictEqual(actual, expected);
       });
 

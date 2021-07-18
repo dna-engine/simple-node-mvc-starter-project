@@ -33,8 +33,7 @@ runSpecs() {
 startServer() {
    cd $projectHome
    echo "Starting server:"
-   # npm start
-   npx nodemon
+   npm start
    echo
    }
 

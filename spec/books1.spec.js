@@ -1,16 +1,13 @@
-// Mocha Specification Cases
+// Mocha Specification Suite
 
 // Imports
 import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
 import { fetchJson } from 'fetch-json';
-import { serverListening } from 'server-listening';
 
 // Setup
-serverListening.setPort();
-import { server } from '../server.js';
-before(() => serverListening.ready(server));
-after(() =>  serverListening.close(server));
-const baseUrl = 'http://localhost:' + server.address().port + '/api';
+fetchJson.enableLogger();
+let baseUrl;
+before(() => baseUrl = globalThis.apiBaseUrl);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('The "/books" REST endpoint', () => {
@@ -21,7 +18,7 @@ describe('The "/books" REST endpoint', () => {
          const expected = { array: true };
          assertDeepStrictEqual(actual, expected, done);
          };
-      fetchJson.get(baseUrl + '/books').then(handleData);
+      fetchJson.get(baseUrl + 'books').then(handleData);
       });
 
    });
