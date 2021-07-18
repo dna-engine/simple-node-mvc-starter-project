@@ -1,4 +1,5 @@
-// REST Error
+// simple-node-mvc-starter-project ~~ MIT License
+// REST Errors
 
 const restError = {
    badRequest(msg)     { return { error: true, code: 400, status: 'Bad request',           message: msg }; },

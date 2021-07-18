@@ -1,8 +1,9 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Routes
 
-import express from 'express';
-import { db }  from './db.js';
+import express       from 'express';
+import { db }        from './db.js';
+import { restError } from './rest-error.js';
 
 // Model
 const model = {
@@ -17,24 +18,17 @@ const model = {
    };
 
 // Controller
-const restError = {
-   badRequest:     { error: true, code: 400, message: 'Bad request' },
-   notFound:       { error: true, code: 404, message: 'Resource not found' },
-   teapot:         { error: true, code: 418, message: 'I am a teapot' },
-   notImplemented: { error: true, code: 501, message: 'Not Implemented' },
-   };
-
 const controller = {};
 
 controller.book = {
    save(request, response) {
-      const resource = restError.notImplemented;
+      const resource = restError.notImplemented('Save book N/A');
       response.json(resource);
       },
    read(request, response) {
       const id = request.params.id;
-      const data = db.collection('books').findOne({ id: +id });
-      const resource = data ? model.book(data) : restError.notFound;
+      const data = db.collection('books').findOne({ id: parseInt(id) });
+      const resource = data ? model.book(data) : restError.notFound('ID: ' + id);
       response.json(resource);
       },
    list(request, response) {
@@ -43,8 +37,9 @@ controller.book = {
       },
    delete(request, response) {
       const id = request.params.id;
-      const data = db.collection('books').findOne({ id: +id });
-      const resource = data ? restError.notImplemented : restError.notFound;
+      const data = db.collection('books').findOne({ id: parseInt(id) });
+      const resource = data ?
+         restError.notImplemented('Delete book N/A') : restError.notFound('ID: ' + id);
       response.json(resource);
       },
    };
@@ -56,6 +51,6 @@ routes.get(   '/books',      controller.book.list);
 routes.post(  '/books',      controller.book.save);
 routes.get(   '/books/:id',  controller.book.read);
 routes.delete('/books/:id',  controller.book.delete);
-routes.all(   '*',           (request, response) => response.json(restError.badRequest));
+routes.all(   '*',           (request, response) => response.json(restError.badRequest('No route')));
 
 export { routes };
