@@ -1,8 +1,8 @@
-// Simple MVC - Routes
+// simple-node-mvc-starter-project ~~ MIT License
+// Routes
 
-// Imports
 import express from 'express';
-import { db } from './db.js';
+import { db }  from './db.js';
 
 // Model
 const model = {
@@ -50,12 +50,12 @@ controller.book = {
    };
 
 // Route table
-const apiRoutes = express();
-apiRoutes.use(express.json());
-apiRoutes.get(   '/books',      controller.book.list);
-apiRoutes.post(  '/books',      controller.book.save);
-apiRoutes.get(   '/books/:id',  controller.book.read);
-apiRoutes.delete('/books/:id',  controller.book.delete);
-apiRoutes.all(   '*',           (request, response) => response.json(restError.badRequest));
+const routes = express();
+routes.use(express.json());
+routes.get(   '/books',      controller.book.list);
+routes.post(  '/books',      controller.book.save);
+routes.get(   '/books/:id',  controller.book.read);
+routes.delete('/books/:id',  controller.book.delete);
+routes.all(   '*',           (request, response) => response.json(restError.badRequest));
 
-export { apiRoutes };
+export { routes };

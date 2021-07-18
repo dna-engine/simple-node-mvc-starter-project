@@ -4,7 +4,7 @@
 import cors           from 'cors';
 import express        from 'express';
 import httpTerminator from 'http-terminator';
-import { apiRoutes }  from './api-routes.js';
+import { routes }     from './routes.js';
 import { log }        from './log.js';
 import { restError }  from './rest-error.js';
 import { restx }      from './restx.js';
@@ -20,7 +20,7 @@ const serverApp = {
       const apiApp = express();
       apiApp.use(cors());
       apiApp.use(express.json());
-      apiApp.use('/api', apiRoutes);
+      apiApp.use('/api', routes);
       apiApp.all('*', (request, response) => response.json(restError.notFound('No route')));
       let done;
       const apiServer = apiApp.listen(settings.port);
