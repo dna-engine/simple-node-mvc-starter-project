@@ -2,17 +2,7 @@
 
 // Imports
 import express from 'express';
-import loki from 'lokijs';
-
-// Database
-const booksData = [
-   { id: 1001, title: 'Go JavaScript', author: 'Jake' },
-   { id: 1002, title: 'Styling CSS3',  author: 'Abby' },
-   { id: 1003, title: 'Howdy HTML5',   author: 'Ed' },
-   ];
-const db = new loki('library.db');
-const collection = { books: db.addCollection('books') };
-collection.books.insert(booksData);
+import { db } from './db.js';
 
 // Model
 const model = {
@@ -43,17 +33,17 @@ controller.book = {
       },
    read(request, response) {
       const id = request.params.id;
-      const data = collection.books.findOne({ id: +id });
+      const data = db.collection('books').findOne({ id: +id });
       const resource = data ? model.book(data) : restError.notFound;
       response.json(resource);
       },
    list(request, response) {
-      const resource = collection.books.find().map(model.book);
+      const resource = db.collection('books').find().map(model.book);
       response.json(resource);
       },
    delete(request, response) {
       const id = request.params.id;
-      const data = collection.books.findOne({ id: +id });
+      const data = db.collection('books').findOne({ id: +id });
       const resource = data ? restError.notImplemented : restError.notFound;
       response.json(resource);
       },
