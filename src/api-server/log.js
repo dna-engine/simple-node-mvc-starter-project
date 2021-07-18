@@ -1,4 +1,5 @@
-// Logging
+// simple-node-mvc-starter-project ~~ MIT License
+// Log Messages
 
 import chalk from 'chalk';
 

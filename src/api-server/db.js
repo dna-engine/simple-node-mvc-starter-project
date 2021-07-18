@@ -1,11 +1,10 @@
-// Simple MVC - Routes
-
-// Imports
-import loki from 'lokijs';
-import { dataset } from './dataset.js';
-import { log } from './log.js';
-
+// simple-node-mvc-starter-project ~~ MIT License
 // Database
+
+import loki        from 'lokijs';
+import { dataset } from './dataset.js';
+import { log }     from './log.js';
+
 const db = {
    state: {
       database:   null,

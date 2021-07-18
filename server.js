@@ -1,4 +1,4 @@
-// Simple MVC - Server
+// simple-node-mvc-starter-project ~~ MIT License
 
 // Imports
 import open             from 'open';

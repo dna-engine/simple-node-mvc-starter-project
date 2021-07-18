@@ -1,3 +1,6 @@
+// simple-node-mvc-starter-project ~~ MIT License
+// Web Application
+
 const app = {};
 
 app.config = {
