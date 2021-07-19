@@ -32,7 +32,7 @@
       }
    },
    "scripts": {
-      "pretest": "jshint . --exclude node_modules",
+      "pretest": "jshint . --exclude node_modules && w3c-html-validator",
       "test": "   mocha spec/*.spec.js --require spec/fixtures/setup-teardown.js --timeout 5000",
       "dev": "    webPort=8080 nodemon",
       "prod": "   NODE_ENV=production npm start"
@@ -56,6 +56,7 @@
       "nodemon": "~2.0",
       "open": "~8.2",
       "pretty-print-json": "~1.0",
+      "w3c-html-validator": "~0.7",
       "web-ignition": "~1.4"
    }
 }
