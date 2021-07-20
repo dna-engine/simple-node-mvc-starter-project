@@ -1,3 +1,8 @@
+# simple-node-mvc-starter-project ~~ MIT License
+
+# Secrets and user preferences
+.env
+
 # Downloaded and generated files
 /node_modules/
 /package-lock.json

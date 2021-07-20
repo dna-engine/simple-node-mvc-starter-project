@@ -2,6 +2,7 @@
 // Database
 
 import loki        from 'lokijs';
+import { config }  from '../config.js';
 import { dataset } from './dataset.js';
 import { log }     from '../system/log.js';
 
@@ -18,7 +19,7 @@ const db = {
    connect() {
       if (db.state.instance)
          throw Error('Database already connected.');
-      db.state.database = new loki('library.db');
+      db.state.database = new loki(config.db.name);
       dataset.forEach(db.addCollection);
       log.info('db', 'connect', true);
       return new Promise(resolve => resolve());

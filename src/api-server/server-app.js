@@ -4,6 +4,7 @@
 import cors           from 'cors';
 import express        from 'express';
 import httpTerminator from 'http-terminator';
+import { config }     from './config.js';
 import { log }        from './system/log.js';
 import { restError }  from './system/rest-error.js';
 import { routes }     from './routes.js';
@@ -19,16 +20,14 @@ const serverApp = {
    status() {
       return serverApp.state.apiServer.listening ? 'active' : 'inactive';
       },
-   start(options) {
-      const defaults = { port: 2121 };
-      const settings = { ...defaults, ...options };
+   start() {
       const apiApp = express();
       apiApp.use(cors());
       apiApp.use(express.json());
       apiApp.use('/api', routes);
       apiApp.all('*', (request, response) => response.json(restError.notFound('No route')));
       let done;
-      const apiServer = apiApp.listen(settings.port);
+      const apiServer = apiApp.listen(config.apiServer.port);
       serverApp.state.apiServer = apiServer;
       serverApp.state.terminator = httpTerminator.createHttpTerminator({ server: apiServer });
       apiServer.on('listening', () => log.info('api-server', 'listening', serverApp.status(), serverApp.port()));
