@@ -1,17 +1,20 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // API System
 
-import { db }        from './db.js';
-import { log }       from './log.js';
+import { db }        from './database/db.js';
+import { log }       from './system/log.js';
 import { serverApp } from './server-app.js';
 
 const api = {
    start() {
-      return db.connect().then(() => serverApp.start());
+      return db.connect()
+         .then(() => serverApp.start())
+         .then(() => log.info('system', 'ready'));
       },
    shutdown() {
-      const bye = () =>  log.info('system', 'shutdown-end');
-      return serverApp.shutdown().then(db.close).then(bye);
+      return serverApp.shutdown()
+         .then(() => db.close())
+         .then(() => log.info('system', 'shutdown'));
       },
    };
 

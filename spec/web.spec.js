@@ -1,3 +1,4 @@
+// simple-node-mvc-starter-project ~~ MIT License
 // Mocha Specification Suite
 
 // Imports

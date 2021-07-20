@@ -2,8 +2,8 @@
 // Routes
 
 import express       from 'express';
-import { db }        from './db.js';
-import { restError } from './rest-error.js';
+import { db }        from './database/db.js';
+import { restError } from './system/rest-error.js';
 
 // Model
 const model = {

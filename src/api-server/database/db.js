@@ -3,7 +3,7 @@
 
 import loki        from 'lokijs';
 import { dataset } from './dataset.js';
-import { log }     from './log.js';
+import { log }     from '../system/log.js';
 
 const db = {
    state: {

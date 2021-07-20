@@ -1,18 +1,23 @@
 // simple-node-mvc-starter-project ~~ MIT License
-// Server Application
+// API Server App
 
 import cors           from 'cors';
 import express        from 'express';
 import httpTerminator from 'http-terminator';
+import { log }        from './system/log.js';
+import { restError }  from './system/rest-error.js';
 import { routes }     from './routes.js';
-import { log }        from './log.js';
-import { restError }  from './rest-error.js';
-import { restx }      from './restx.js';
 
 const serverApp = {
    state: {
       apiServer:  null,
       terminator: null,
+      },
+   port() {
+      return serverApp.state.apiServer.address().port;
+      },
+   status() {
+      return serverApp.state.apiServer.listening ? 'active' : 'inactive';
       },
    start(options) {
       const defaults = { port: 2121 };
@@ -26,15 +31,14 @@ const serverApp = {
       const apiServer = apiApp.listen(settings.port);
       serverApp.state.apiServer = apiServer;
       serverApp.state.terminator = httpTerminator.createHttpTerminator({ server: apiServer });
-      apiServer.on('listening', () => log.info('api-server', 'listening', restx.status(apiServer), restx.port(apiServer)));
+      apiServer.on('listening', () => log.info('api-server', 'listening', serverApp.status(), serverApp.port()));
       apiServer.on('listening', () => done(apiServer));
-      apiServer.on('close',     () => log.info('api-server', 'shutdown-start', restx.status(apiServer)));
+      apiServer.on('close',     () => log.info('api-server', 'shutdown-start', serverApp.status()));
       process.on('SIGINT', serverApp.shutdown);
       return new Promise(resolve => done = resolve);
       },
    shutdown() {
-      const bye = () =>
-         log.info('api-server', 'shutdown-end', restx.status(serverApp.state.apiServer));
+      const bye = () => log.info('api-server', 'shutdown-end', serverApp.status());
       return serverApp.state.terminator.terminate().then(bye);
       },
    };
