@@ -2,6 +2,9 @@
 // Configuration
 
 import dotenv from 'dotenv';
+
+export type Config = typeof config;
+
 dotenv.config();
 
 const config = {

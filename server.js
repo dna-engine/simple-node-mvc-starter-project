@@ -4,7 +4,7 @@
 import open             from 'open';
 import { browserReady } from 'puppeteer-browser-ready';
 import { readFileSync } from 'fs';
-import { api }          from './src/api-server/index.js';
+import { api }          from './dist/api-server/index.js';
 
 // Setup
 const prodMode =  process.env.NODE_ENV === 'production';

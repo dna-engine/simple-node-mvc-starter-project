@@ -1,10 +1,10 @@
 // simple-node-mvc-starter-project ~~ MIT License
-// Log Messages
+// Logging
 
 import chalk from 'chalk';
 
-const date = () => chalk.blue(new Date().toISOString());
-const logger = (type) => (...args) => console.log(date(), type, ...args);
+const timestamp = (): string => chalk.blue(new Date().toISOString());
+const logger = (type: string) => (...args: unknown[]) => console.log(timestamp(), type, ...args);
 
 const log = {
    info:  logger(chalk.white('info')),

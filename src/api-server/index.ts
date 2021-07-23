@@ -1,19 +1,19 @@
 // simple-node-mvc-starter-project ~~ MIT License
-// API System
+// Startup REST Server and Database
 
-import { db }        from './database/db.js';
+import { database }  from './db/database.js';
 import { log }       from './system/log.js';
 import { serverApp } from './server-app.js';
 
 const api = {
-   start() {
-      return db.connect()
+   start(): Promise<void> {
+      return database.connect()
          .then(() => serverApp.start())
          .then(() => log.info('system', 'ready'));
       },
-   shutdown() {
+   shutdown(): Promise<void> {
       return serverApp.shutdown()
-         .then(() => db.close())
+         .then(() => database.close())
          .then(() => log.info('system', 'shutdown'));
       },
    };
