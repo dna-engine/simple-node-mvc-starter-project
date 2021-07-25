@@ -52,16 +52,19 @@
       }
    },
    "scripts": {
-      "lint": "   jshint . --exclude node_modules,build,dist && eslint --max-warnings 0 . --ext .ts",
-      "tsc": "    tsc --version && tsc --project .",
-      "posttsc": "copyfiles --up 2 'build/step0-tsc/api-server/**/*.js' dist",
-      "preroll": "copyfiles --up 1 'src/web-app/**/*.html' ./build/step1-staging",
-      "roll": "   rollup --config",
-      "pretest": "npm run lint && rimraf build dist **/.DS_Store && npm run tsc && npm run roll",
-      "test": "   mocha spec/*.spec.js --require spec/fixtures/setup-teardown.js --timeout 5000",
-      "predev": " npm test",
-      "dev": "    webPort=8080 nodemon",
-      "prod": "   NODE_ENV=production npm start"
+      "step01": "rimraf build dist **/.DS_Store",
+      "step02": "jshint . --exclude node_modules,build,dist",
+      "step03": "eslint --max-warnings 0 . --ext .ts",
+      "step04": "tsc --version && tsc --project .",
+      "step05": "copyfiles --up 2 'build/step1-tsc/api-server/**/*.js' dist",
+      "step06": "copyfiles --up 1 'src/web-app/**/*.html' ./build/step2-staging",
+      "step07": "rollup --config",
+      "step08": "copyfiles --up 2 'build/step2-staging/web-app/**/*' dist",
+      "step09": "mocha spec/*.spec.js --require spec/fixtures/setup-teardown.js --timeout 5000",
+      "test": "  npm-run-all step*",
+      "predev": "npm test",
+      "dev": "   webPort=8080 nodemon",
+      "prod": "  NODE_ENV=production npm start"
    },
    "dependencies": {
       "chalk": "~4.1",
@@ -92,6 +95,7 @@
       "mocha": "~9.0",
       "node-fetch": "~2.6",
       "nodemon": "~2.0",
+      "npm-run-all2": "~5.0",
       "open": "~8.2",
       "pretty-print-json": "~1.0",
       "puppeteer": "~10.1",

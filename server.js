@@ -8,7 +8,7 @@ import { api }          from './dist/api-server/index.js';
 
 // Setup
 const prodMode =  process.env.NODE_ENV === 'production';
-const webFolder = process.env.webFolder || 'build/step1-staging/web-app';
+const webFolder = process.env.webFolder || 'build/step2-staging/web-app';
 const webPort =   process.env.webPort || 0;
 const pkg =       JSON.parse(readFileSync('./package.json'));
 

@@ -10,13 +10,13 @@ const globalize = (map, mod) => { map[mod] = 'globalThis'; return map; };
 const globals =   libraryModules.reduce(globalize, {});
 
 const rollup = {
-   input:    'build/step0-tsc/web-app/ts/app.js',
+   input:    'build/step1-tsc/web-app/ts/app.js',
    external: libraryModules,
    onwarn:   (warning, warn) => ignoreList.includes(warning.code) || warn(warning),
    output: [
       {
          name:    'bundle',
-         file:    'build/step1-staging/web-app/app.bundle.js',
+         file:    'build/step2-staging/web-app/app.bundle.js',
          globals: globals,
          format:  'iife',
          },
