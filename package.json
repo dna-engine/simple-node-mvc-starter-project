@@ -55,8 +55,11 @@
       "lint": "   jshint . --exclude node_modules,build,dist && eslint --max-warnings 0 . --ext .ts",
       "tsc": "    tsc --version && tsc --project .",
       "posttsc": "copyfiles --up 2 'build/step0-tsc/api-server/**/*.js' dist",
-      "pretest": "npm run lint && rimraf build dist **/.DS_Store && npm run tsc",
+      "preroll": "copyfiles --up 1 'src/web-app/**/*.html' ./build/step1-staging",
+      "roll": "   rollup --config",
+      "pretest": "npm run lint && rimraf build dist **/.DS_Store && npm run tsc && npm run roll",
       "test": "   mocha spec/*.spec.js --require spec/fixtures/setup-teardown.js --timeout 5000",
+      "predev": " npm test",
       "dev": "    webPort=8080 nodemon",
       "prod": "   NODE_ENV=production npm start"
    },
@@ -94,6 +97,7 @@
       "puppeteer": "~10.1",
       "puppeteer-browser-ready": "~0.3",
       "rimraf": "~3.0",
+      "rollup": "~2.54",
       "typescript": "~4.3",
       "w3c-html-validator": "~0.7",
       "web-ignition": "~1.4"
