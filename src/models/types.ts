@@ -1,3 +1,4 @@
 // simple-node-mvc-starter-project ~~ MIT License
 
-export type TBD = null;
+export type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
+export type JsonData = Json[] | { [key: string]: Json };
