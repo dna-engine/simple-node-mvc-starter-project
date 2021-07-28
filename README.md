@@ -7,8 +7,9 @@ _Simple Node.js MVC starter project_
 
 **STATUS:** Early development (not even pre-alpha)
 
-Try it out:
+![screenshot](screenshot.png)
 
+Try it out:
 ```
 $ git clone https://github.com/dnajs/simple-node-mvc-starter-project
 $ cd simple-node-mvc-starter-project
