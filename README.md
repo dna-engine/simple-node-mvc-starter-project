@@ -9,12 +9,15 @@ _Simple Node.js MVC starter project_
 
 Try it out:
 
-1. Install Node.js from: https://nodejs.org
-1. `$ cd simple-node-mvc-starter-project`
-1. `$ npm install`
-1. `$ npm test`
-1. `$ npm start`
-1. `$ open http://localhost:3377`
+```
+$ git clone https://github.com/dnajs/simple-node-mvc-starter-project
+$ cd simple-node-mvc-starter-project
+$ npm install
+$ npm test
+$ npm start
+```
+
+<br>
 
 ---
 [MIT License](LICENSE.txt)
