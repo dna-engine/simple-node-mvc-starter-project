@@ -1,8 +1,9 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Routes
 
-import express from 'express';
+import express, { RequestHandler } from 'express';
 import { database, Document }  from './db/database.js';
+import { log } from './system/log.js';
 import { restError } from './system/rest-error.js';
 
 export type DocumentBook = {
@@ -21,6 +22,12 @@ const model = {
          retrieved: new Date().toDateString(),
          };
       },
+   };
+
+// Utilities
+const logRestRequest: RequestHandler = (request, _response, next) => {
+   log.info('api-server', 'request', request.ip, request.hostname, request.method, request.path);
+   next();
    };
 
 // Controller
@@ -55,6 +62,7 @@ const controller = {
 
 // Route table
 const routes = express();
+routes.use(logRestRequest);
 routes.use(express.json());
 routes.get(   '/books',      controller.book.list);
 routes.post(  '/books',      controller.book.save);

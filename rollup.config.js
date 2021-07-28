@@ -2,16 +2,16 @@
 // Rollup Configuration
 
 // Imports
-import { babel } from '@rollup/plugin-babel';
+import { babel }  from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
+import pkg        from './package.json';
 
 // Settings
-const banner =         `//! ${pkg.name} v${pkg.version} ~~ ${pkg.homepage} ~~ ${pkg.license} License`;
 const libraryModules = ['dna.js', 'fetch-json', 'pretty-print-json'];
 const ignoreList =     ['CIRCULAR_DEPENDENCY', 'MISSING_NAME_OPTION_FOR_IIFE_EXPORT'];
 
 // Utilities
+const banner =    `//! ${pkg.name} v${pkg.version} ~~ ${pkg.homepage} ~~ ${pkg.license} License`;
 const globalize = (map, mod) => { map[mod] = 'globalThis'; return map; };
 const globals =   libraryModules.reduce(globalize, {});
 const onWarn =    (warning, warn) => ignoreList.includes(warning.code) || warn(warning);
