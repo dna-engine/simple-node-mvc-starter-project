@@ -1,5 +1,6 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // API Server
+// Options: NODE_ENV, apiFolder, webFolder, webPort
 
 // Imports
 import open             from 'open';
@@ -8,15 +9,15 @@ import { readFileSync } from 'fs';
 
 // Configuration
 const config = {
-   development: { api: 'build/step1-tsc/api-server', web: 'build/step2-staging/web-app', port: 8000 },
+   development: { api: 'build/step1-tsc/api-server', web: 'build/step2-staging/web-app' },
    production:  { api: 'dist/api-server',            web: 'dist/web-app' },
    };
 
 // Setup
-const mode =      process.env.NODE_ENV ?? 'development';
+const mode =      process.env.NODE_ENV  ?? 'development';
 const apiFolder = process.env.apiFolder ?? config[mode].api;
 const webFolder = process.env.webFolder ?? config[mode].web;
-const webPort =   process.env.webPort ??   config[mode].port ?? 0;
+const webPort =   process.env.webPort   ?? 0;
 const pkg =       JSON.parse(readFileSync('./package.json'));
 const browser =   mode === 'development' && !process.env._.includes('nodemon');
 

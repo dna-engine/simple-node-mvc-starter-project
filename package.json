@@ -70,7 +70,7 @@
       "dev:node": "   nodemon --watch build/step1-tsc/api-server",
       "dev:browser": "browser-sync build/step2-staging/web-app --watch",
       "dev": "        npm test && npm-run-all --parallel dev:*",
-      "prod": "npm test && NODE_ENV=production npm start"
+      "prod": "NODE_ENV=production npm start"
    },
    "dependencies": {
       "chalk": "~4.1",
@@ -113,7 +113,7 @@
       "puppeteer": "~10.1",
       "puppeteer-browser-ready": "~0.3",
       "rimraf": "~3.0",
-      "rollup": "~2.54",
+      "rollup": "~2.55",
       "rollup-plugin-terser": "~7.0",
       "typescript": "~4.3",
       "w3c-html-validator": "~0.7",
