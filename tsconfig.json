@@ -6,7 +6,6 @@
       "moduleResolution": "node",
       "declaration": true,
       "outDir": "build/step1-tsc",
-      "sourceMap": true,
       "strict": true,
       "alwaysStrict": true,
       "esModuleInterop": true,

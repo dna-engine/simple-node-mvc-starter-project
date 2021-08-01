@@ -7,6 +7,7 @@ import { serverApp } from './server-app.js';
 
 const api = {
    start(): Promise<void> {
+      log.info('system', 'initialize');
       return database.connect()
          .then(() => serverApp.start())
          .then(() => log.info('system', 'ready'));
