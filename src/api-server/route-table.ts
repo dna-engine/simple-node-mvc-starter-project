@@ -25,7 +25,7 @@ const model = {
    };
 
 // Utilities
-const logRestRequest: RequestHandler = (request, _response, next) => {
+const logRestRequest: RequestHandler = (request, response, next) => {
    log.info('api-server', 'request', request.ip, request.hostname, request.method, request.path);
    next();
    };
@@ -33,7 +33,7 @@ const logRestRequest: RequestHandler = (request, _response, next) => {
 // Controller
 const controller = {
    book: {
-      save(_request: express.Request, response: express.Response) {
+      save(request: express.Request, response: express.Response) {
          const resource = restError.notImplemented('Save book N/A');
          response.json(resource);
          },
@@ -44,7 +44,7 @@ const controller = {
          const resource = data ? model.book(data) : restError.notFound();
          response.json(resource);
          },
-      list(_request: express.Request, response: express.Response) {
+      list(request: express.Request, response: express.Response) {
          const db = database.getDb();
          const resource = db.collection('books').find().map(model.book);
          response.json(resource);
@@ -60,14 +60,18 @@ const controller = {
       },
    };
 
-// Route table
-const routes = express();
-routes.use(logRestRequest);
-routes.use(express.json());
-routes.get(   '/books',      controller.book.list);
-routes.post(  '/books',      controller.book.save);
-routes.get(   '/books/:id',  controller.book.read);
-routes.delete('/books/:id',  controller.book.delete);
-routes.all(   '*',           (_request, response) => response.json(restError.badRequest('No route')));
+const routeTable = {
+   createRoutes(): express.Express {
+      const routes = express();
+      routes.use(logRestRequest);
+      routes.use(express.json());
+      routes.get(   '/books',      controller.book.list);
+      routes.post(  '/books',      controller.book.save);
+      routes.get(   '/books/:id',  controller.book.read);
+      routes.delete('/books/:id',  controller.book.delete);
+      routes.all(   '*',           (request, response) => response.json(restError.badRequest('No route')));
+      return routes;
+      },
+   };
 
-export { routes };
+export { routeTable };

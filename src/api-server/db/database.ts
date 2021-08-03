@@ -7,6 +7,7 @@ import { dataset } from './dataset.js';
 import { log }     from '../system/log.js';
 
 export type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
+export type JsonData = Json[] | { [key: string]: Json };
 export type Document = { [key: string]: Json };
 export type DatabaseState = {
    client:        loki | null,

@@ -9,7 +9,7 @@ import { Server }      from 'http';
 import { config }      from './config.js';
 import { log }         from './system/log.js';
 import { restError }   from './system/rest-error.js';
-import { routes }      from './routes.js';
+import { routeTable }  from './route-table.js';
 
 export type ServerAppState = {
    apiServer:  Server | null,
@@ -32,7 +32,7 @@ const serverApp = {
       const apiApp = express();
       apiApp.use(cors());
       apiApp.use(express.json());
-      apiApp.use('/api/v1', routes);
+      apiApp.use('/api/v1', routeTable.createRoutes());
       apiApp.all('*', (request, response) => response.json(restError.notFound('No route: ' + request.baseUrl)));
       let done: (server: Server) => void;
       const apiServer = apiApp.listen(config.apiServer.port);
