@@ -32,7 +32,7 @@ const serverApp = {
       const apiApp = express();
       apiApp.use(cors());
       apiApp.use(express.json());
-      apiApp.use('/api', routes);
+      apiApp.use('/api/v1', routes);
       apiApp.all('*', (request, response) => response.json(restError.notFound('No route: ' + request.baseUrl)));
       let done: (server: Server) => void;
       const apiServer = apiApp.listen(config.apiServer.port);

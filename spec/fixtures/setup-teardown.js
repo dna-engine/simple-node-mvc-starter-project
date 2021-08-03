@@ -7,7 +7,7 @@ import { serverApp } from '../../dist/api-server/server-app.js';
 
 // Setup
 const mochaGlobalSetup = () => {
-   const setApiBaseUrl = () => globalThis.apiBaseUrl = `http://localhost:${serverApp.port()}/api/`;
+   const setApiBaseUrl = () => globalThis.apiBaseUrl = `http://localhost:${serverApp.port()}/api/v1/`;
    return api.start().then(setApiBaseUrl);
    };
 
