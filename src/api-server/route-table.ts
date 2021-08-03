@@ -2,27 +2,9 @@
 // Routes
 
 import express, { RequestHandler } from 'express';
-import { database, Document }  from './db/database.js';
+import { bookController } from './controllers/book-controller.js';
 import { log } from './system/log.js';
 import { restError } from './system/rest-error.js';
-
-export type DocumentBook = {
-   id:     number,
-   title:  string,
-   author: string,
-   };
-
-// Model
-const model = {
-   book(data: Document) {
-      return {
-         id:        data.id,
-         title:     data.title,
-         author:    data.author,
-         retrieved: new Date().toDateString(),
-         };
-      },
-   };
 
 // Utilities
 const logRestRequest: RequestHandler = (request, response, next) => {
@@ -30,45 +12,15 @@ const logRestRequest: RequestHandler = (request, response, next) => {
    next();
    };
 
-// Controller
-const controller = {
-   book: {
-      save(request: express.Request, response: express.Response) {
-         const resource = restError.notImplemented('Save book N/A');
-         response.json(resource);
-         },
-      read(request: express.Request, response: express.Response) {
-         const id = request.params.id!;
-         const db = database.getDb();
-         const data = <Document>db.collection('books').findOne({ id: parseInt(id) });
-         const resource = data ? model.book(data) : restError.notFound();
-         response.json(resource);
-         },
-      list(request: express.Request, response: express.Response) {
-         const db = database.getDb();
-         const resource = db.collection('books').find().map(model.book);
-         response.json(resource);
-         },
-      delete(request: express.Request, response: express.Response) {
-         const id = request.params.id!;
-         const db = database.getDb();
-         const data = db.collection('books').findOne({ id: parseInt(id) });
-         const resource = data ?
-            restError.notImplemented('Delete book N/A') : restError.notFound();
-         response.json(resource);
-         },
-      },
-   };
-
 const routeTable = {
    createRoutes(): express.Express {
       const routes = express();
       routes.use(logRestRequest);
       routes.use(express.json());
-      routes.get(   '/books',      controller.book.list);
-      routes.post(  '/books',      controller.book.save);
-      routes.get(   '/books/:id',  controller.book.read);
-      routes.delete('/books/:id',  controller.book.delete);
+      routes.get(   '/books',      bookController.list);
+      routes.post(  '/books',      bookController.save);
+      routes.get(   '/books/:id',  bookController.read);
+      routes.delete('/books/:id',  bookController.delete);
       routes.all(   '*',           (request, response) => response.json(restError.badRequest('No route')));
       return routes;
       },
