@@ -8,9 +8,6 @@ import { appConfig } from './config.js';
 import { appUi }     from './ui.js';
 import { appUtils }  from './utils.js';
 
-export type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
-export type JsonData = Json[] | { [key: string]: Json };
-
 const app = {
    config: appConfig,
    utils:  appUtils,

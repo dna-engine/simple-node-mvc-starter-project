@@ -1,14 +1,13 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Database
 
-import loki        from 'lokijs';
-import { config }  from '../config.js';
-import { dataset } from './dataset.js';
-import { log }     from '../system/log.js';
+import loki           from 'lokijs';
+import { config }     from '../config.js';
+import { dataset }    from './dataset.js';
+import { JsonObject } from '../../models/types.js';
+import { log }        from '../system/log.js';
 
-export type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
-export type JsonData = Json[] | { [key: string]: Json };
-export type Document = { [key: string]: Json };
+export type Document = JsonObject;
 export type DatabaseState = {
    client:        loki | null,
    db:            Db,

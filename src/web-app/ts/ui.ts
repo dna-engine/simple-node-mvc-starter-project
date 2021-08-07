@@ -2,7 +2,8 @@
 // Web Application - UI
 
 import { prettyPrintJson } from 'pretty-print-json';
-import { app, JsonData }   from './app';
+import { JsonData } from '../../models/types';
+import { app }   from './app';
 
 const appUi = {
    logApiCall(method: string, path: string): void {
