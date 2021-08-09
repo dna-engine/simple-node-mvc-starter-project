@@ -8,6 +8,7 @@ const logger = (type: string) => (...args: unknown[]) => console.log(timestamp()
 
 const log = {
    info:  logger(chalk.white('info')),
+   warn:  logger(chalk.yellow('warn')),
    error: logger(chalk.red('error')),
    debug: logger(chalk.magenta('debug')),
    };
