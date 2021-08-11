@@ -3,8 +3,11 @@
 
 import chalk from 'chalk';
 
+export type LogLevel = 'info' | 'warn' | 'error' | 'debug';
+export type Loggable = string | boolean | number | null | undefined;
+
 const timestamp = (): string => chalk.blue(new Date().toISOString());
-const logger = (type: string) => (...args: unknown[]) => console.log(timestamp(), type, ...args);
+const logger = (level: string) => (...args: Loggable[]) => console.log(timestamp(), level, ...args);
 
 const log = {
    info:  logger(chalk.white('info')),
