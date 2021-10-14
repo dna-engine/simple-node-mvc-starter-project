@@ -2,7 +2,7 @@
 // Mocha Setup/Teardown
 
 // Imports
-import { api } from       '../../dist/api-server/index.js';
+import { api }       from '../../dist/api-server/index.js';
 import { serverApp } from '../../dist/api-server/server-app.js';
 
 // Setup
