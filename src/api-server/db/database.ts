@@ -19,9 +19,9 @@ export type Db = {
 
 const collection = (name: string): Collection<Document> => {
    if (!database.state.db)
-      throw Error('Database not connected');
+      throw Error('[simple] Database not connected.');
    if (!database.state.collectionMap[name])
-      throw Error('Invalid database collection: ' + name);
+      throw Error('[simple] Invalid database collection: ' + name);
    return database.state.collectionMap[name]!;
    };
 
@@ -33,7 +33,7 @@ const database = {
       },
    getDb(): Db {
       if (!database.state.client)
-         throw Error('Database not connected.');
+         throw Error('[simple] Database not connected.');
       return database.state.db;
       },
    addCollection(data: typeof dataset[0]): void {
@@ -43,7 +43,7 @@ const database = {
       },
    connect(): Promise<void> {
       if (database.state.client)
-         throw Error('Database already connected.');
+         throw Error('[simple] Database already connected.');
       database.state.client = new loki(config.db.name);
       dataset.forEach(database.addCollection);
       log.info('db', 'connect', true);
