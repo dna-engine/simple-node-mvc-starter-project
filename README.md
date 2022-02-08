@@ -3,7 +3,7 @@
 
 _Simple Node.js MVC starter project_
 
-[![Build](https://github.com/dnajs/simple-node-mvc-starter-project/workflows/build/badge.svg)](https://github.com/dnajs/simple-node-mvc-starter-project/actions?query=workflow%3Abuild)
+[![Build](https://github.com/dnajs/simple-node-mvc-starter-project/workflows/build/badge.svg)](https://github.com/dnajs/simple-node-mvc-starter-project/actions/workflows/run-spec-on-push.yaml)
 
 **STATUS:** Early development (not even pre-alpha)
 
