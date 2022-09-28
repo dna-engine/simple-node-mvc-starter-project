@@ -3,9 +3,9 @@
 // Options: NODE_ENV, apiFolder, webFolder, webPort
 
 // Imports
-import open             from 'open';
 import { browserReady } from 'puppeteer-browser-ready';
 import { readFileSync } from 'fs';
+import open             from 'open';
 
 // Configuration
 const config = {
@@ -18,7 +18,7 @@ const mode =      process.env.NODE_ENV  ?? 'development';
 const apiFolder = process.env.apiFolder ?? config[mode].api;
 const webFolder = process.env.webFolder ?? config[mode].web;
 const webPort =   process.env.webPort   ?? 0;
-const pkg =       JSON.parse(readFileSync('./package.json', 'utf8'));
+const pkg =       JSON.parse(readFileSync('./package.json', 'utf-8'));
 const browser =   mode === 'development' && !process.env._.includes('nodemon');
 
 // Start
