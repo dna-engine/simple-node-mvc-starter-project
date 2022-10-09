@@ -5,7 +5,7 @@ import { ApiServer } from './config';
 
 const appUtils = {
    isCurrentWebsite(server: ApiServer): boolean {
-      return server.website === window.location.hostname;
+      return server.website === globalThis.location.hostname;
       },
    };
 
