@@ -1,9 +1,9 @@
 # simple-node-mvc-starter-project
-<img src=https://dnajs.org/graphics/dnajs-logo.png align=right width=160 alt=logo>
+<img src=https://dna-engine.org/graphics/dna-logo.png align=right width=160 alt=logo>
 
 _Simple Node.js MVC starter project_
 
-[![Build](https://github.com/dnajs/simple-node-mvc-starter-project/workflows/build/badge.svg)](https://github.com/dnajs/simple-node-mvc-starter-project/actions/workflows/run-spec-on-push.yaml)
+[![Build](https://github.com/dna-engine/simple-node-mvc-starter-project/workflows/build/badge.svg)](https://github.com/dna-engine/simple-node-mvc-starter-project/actions/workflows/run-spec-on-push.yaml)
 
 **STATUS:** Early development (not even pre-alpha)
 
@@ -11,7 +11,7 @@ _Simple Node.js MVC starter project_
 
 Try it out:
 ```
-$ git clone https://github.com/dnajs/simple-node-mvc-starter-project
+$ git clone https://github.com/dna-engine/simple-node-mvc-starter-project
 $ cd simple-node-mvc-starter-project
 $ npm install
 $ npm test

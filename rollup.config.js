@@ -7,7 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 import pkg        from './package.json';
 
 // Settings
-const libraryModules = ['dna.js', 'fetch-json', 'pretty-print-json'];
+const libraryModules = ['dna-engine', 'fetch-json', 'pretty-print-json'];
 const ignoreList =     ['CIRCULAR_DEPENDENCY', 'MISSING_NAME_OPTION_FOR_IIFE_EXPORT'];
 
 // Utilities

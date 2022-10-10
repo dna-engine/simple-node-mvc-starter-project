@@ -1,7 +1,7 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Web Application
 
-import { dna }       from 'dna.js';
+import { dna }       from 'dna-engine';
 import { fetchJson } from 'fetch-json';
 import { appAction } from './action.js';
 import { appConfig } from './config.js';
