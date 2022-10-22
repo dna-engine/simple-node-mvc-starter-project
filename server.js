@@ -9,7 +9,7 @@ import open             from 'open';
 
 // Configuration
 const config = {
-   development: { api: 'build/1-tsc/api-server', web: 'build/2-dev/web-app' },
+   development: { api: 'build/1-pre/api-server', web: 'build/2-dev/web-app' },
    production:  { api: 'dist/api-server',            web: 'dist/web-app' },
    };
 
