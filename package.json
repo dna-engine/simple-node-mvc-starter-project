@@ -52,8 +52,10 @@
       }
    },
    "runScriptsConfig": {
+      "clean": [
+         "rimraf build dist"
+      ],
       "build": [
-         "rimraf build dist **/.DS_Store",
          "jshint . --exclude-path .gitignore",
          "eslint --max-warnings 0 . --ext .ts",
          "tsc",
@@ -75,7 +77,7 @@
       ]
    },
    "scripts": {
-      "pretest": "run-scripts build",
+      "pretest": "run-scripts clean build",
       "test": "mocha spec/*.spec.js --require spec/fixtures/setup-teardown.js --timeout 5000",
       "dev": "npm test && run-scripts dev --parallel",
       "prod": "NODE_ENV=production npm start"
@@ -85,7 +87,7 @@
       "cors": "~2.8",
       "dotenv": "~16.0",
       "express": "~4.18",
-      "fetch-json": "~3.0",
+      "fetch-json": "~3.1",
       "http-terminator": "~3.2",
       "lokijs": "~1.5"
    },
@@ -95,33 +97,33 @@
       "@types/gapi.auth2": "~0.0",
       "@types/jquery": "~3.5",
       "@types/lokijs": "~1.5",
-      "@types/node": "~18.11",
-      "@typescript-eslint/eslint-plugin": "~5.50",
-      "@typescript-eslint/parser": "~5.50",
-      "add-dist-header": "~0.3",
+      "@types/node": "~18.15",
+      "@typescript-eslint/eslint-plugin": "~5.58",
+      "@typescript-eslint/parser": "~5.58",
+      "add-dist-header": "~1.0",
       "assert-deep-strict-equal": "~1.0",
-      "browser-sync": "~2.27",
+      "browser-sync": "~2.29",
       "chokidar-cli": "~3.0",
-      "copy-file-util": "~0.1",
-      "copy-folder-util": "~0.2",
+      "copy-file-util": "~1.0",
+      "copy-folder-util": "~1.0",
       "csso-cli": "~4.0",
       "dna-engine": "~2.3",
-      "eslint": "~8.33",
+      "eslint": "~8.38",
       "jquery": "~3.6",
       "jshint": "~2.13",
       "mocha": "~10.2",
       "nodemon": "~2.0",
-      "open": "~8.4",
-      "pretty-print-json": "~1.4",
-      "puppeteer": "19.5",
-      "puppeteer-browser-ready": "~0.5",
-      "rev-web-assets": "~0.1",
-      "rimraf": "3",
-      "rollup": "~3.12",
-      "run-scripts-util": "~0.1",
-      "typescript": "~4.9",
+      "open": "~9.1",
+      "pretty-print-json": "~2.0",
+      "puppeteer": "~19.9",
+      "puppeteer-browser-ready": "~1.0",
+      "rev-web-assets": "~1.0",
+      "rimraf": "~5.0",
+      "rollup": "~3.20",
+      "run-scripts-util": "~1.1",
+      "typescript": "~5.0",
       "uglify-js": "~3.17",
       "w3c-html-validator": "~1.3",
-      "web-ignition": "~1.6"
+      "web-ignition": "~1.7"
    }
 }
