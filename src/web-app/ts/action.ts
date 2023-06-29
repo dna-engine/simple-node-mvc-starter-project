@@ -10,14 +10,14 @@ const appAction = {
       app.ui.logApiCall('GET', path);
       fetchJson.get(app.lookup.apiServer + path).then(app.ui.handleBooks);
       },
-   getBook(button: JQuery): void {
-      const id = button.data().book;
+   getBook(button: HTMLElement): void {
+      const id = button.dataset.book;
       const path = 'books/' + id;
       app.ui.logApiCall('GET', path);
       fetchJson.get(app.lookup.apiServer + path).then(app.ui.handleBooks);
       },
-   deleteBook(button: JQuery): void {
-      const id = button.data().book;
+   deleteBook(button: HTMLElement): void {
+      const id = button.dataset.book;
       const path = 'books/' + id;
       app.ui.logApiCall('DELETE', path);
       fetchJson.delete(app.lookup.apiServer + path).then(app.ui.handleBooks);

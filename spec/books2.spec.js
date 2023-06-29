@@ -24,7 +24,7 @@ describe('The "/books/3002" REST endpoint', () => {
       });
 
    it('returns the "Styling CSS3" book in an async spec', async () => {
-      const data = await fetchJson.get(baseUrl + 'books/3002');
+      const data =     await fetchJson.get(baseUrl + 'books/3002');
       const actual =   data;
       const expected = { id: 3002, title: 'Styling CSS3', author: 'Abby', retrieved: today };
       assertDeepStrictEqual(actual, expected);

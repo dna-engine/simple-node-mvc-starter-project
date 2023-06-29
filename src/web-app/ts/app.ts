@@ -23,6 +23,6 @@ const app = {
       },
    };
 
-app.setup();
+dna.dom.onReady(app.setup);
 
 export { app };

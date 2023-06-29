@@ -15,14 +15,13 @@
    <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
    <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
    <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/pretty-print-json@2.0/dist/css/pretty-print-json.css>
-   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/dna-engine.css>
-   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/web-ignition@1.7/dist/reset.min.css>
+   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.css>
+   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/web-ignition@2.0/dist/reset.min.css>
    <script defer src=https://cdn.jsdelivr.net/npm/whatwg-fetch@3.5/dist/fetch.umd.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/fetch-json@3.1/dist/fetch-json.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/dna-engine.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/fetch-json@3.2/dist/fetch-json.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
    <script defer src=https://cdn.jsdelivr.net/npm/pretty-print-json@2.0/dist/pretty-print-json.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@1.7/dist/lib-x.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@2.0/dist/lib-x.min.js></script>
    <script defer src=app.bundle.js></script>
 </head>
 <body>
@@ -34,17 +33,17 @@
 
 <main>
    <p>
-      <button data-click=app.action.getBook data-book=3001>Get Book 1</button>
-      <button data-click=app.action.getBook data-book=3002>Get Book 2</button>
-      <button data-click=app.action.getBook data-book=3003>Get Book 3</button>
-      <button data-click=app.action.getBook data-book=3004>Get Book 4</button>
-      <button data-click=app.action.getBook data-book=3005>Get Book 5</button>
+      <button data-on-click=app.action.getBook data-book=3001>Get Book 1</button>
+      <button data-on-click=app.action.getBook data-book=3002>Get Book 2</button>
+      <button data-on-click=app.action.getBook data-book=3003>Get Book 3</button>
+      <button data-on-click=app.action.getBook data-book=3004>Get Book 4</button>
+      <button data-on-click=app.action.getBook data-book=3005>Get Book 5</button>
    </p>
    <p>
-      <button data-click=app.action.getBooks>Get All Books</button>
-      <button data-click=app.action.deleteBook data-book=3001>Delete Book 1</button>
-      <button data-click=app.action.deleteBook data-book=3004>Delete Book 4</button>
-      <button data-click=app.action.bogus>Bogus</button>
+      <button data-on-click=app.action.getBooks>Get All Books</button>
+      <button data-on-click=app.action.deleteBook data-book=3001>Delete Book 1</button>
+      <button data-on-click=app.action.deleteBook data-book=3004>Delete Book 4</button>
+      <button data-on-click=app.action.bogus>Bogus</button>
    </p>
    <p>
       <cite><code></code> <output></output></cite>
