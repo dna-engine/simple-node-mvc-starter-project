@@ -60,7 +60,7 @@
          "tsc",
          "copy-folder src/web-app --ext=.html build/2-dev/web-app",
          "html-validator build/2-dev",
-         "rollup build/1-pre/web-app/ts/app.js --file build/2-dev/web-app/app.bundle.js --name app --format iife --globals dna-engine:globalThis,fetch-json:globalThis,pretty-print-json:globalThis",
+         "rollup build/1-pre/web-app/app.js --file build/2-dev/web-app/app.bundle.js --name app --format iife --globals dna-engine:globalThis,fetch-json:globalThis,pretty-print-json:globalThis",
          "copy-folder src/web-app --ext=.html build/3-min/web-app",
          "uglifyjs build/2-dev/web-app/app.bundle.js --output build/3-min/web-app/app.bundle.js",
          "rev-web-assets build/3-min/web-app build/4-rev/web-app"
