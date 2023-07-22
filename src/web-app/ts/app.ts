@@ -4,11 +4,11 @@
 import { dna }       from 'dna-engine';
 import { fetchJson } from 'fetch-json';
 
-import { appAction } from './action.js';
-import { appConfig } from './config.js';
-import { appLookup } from './lookup.js';
-import { appUi }     from './ui.js';
-import { appUtils }  from './utils.js';
+import { appAction } from './modules/action.js';
+import { appConfig } from './modules/config.js';
+import { appLookup } from './modules/lookup.js';
+import { appUi }     from './modules/ui.js';
+import { appUtils }  from './modules/utils.js';
 
 const app = {
    config: appConfig,

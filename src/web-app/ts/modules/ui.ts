@@ -4,7 +4,7 @@
 import { prettyPrintJson } from 'pretty-print-json';
 
 import { appLookup } from './lookup.js';
-import { JsonData } from '../../models/types';
+import { JsonData } from '../../../models/types';
 
 const appUi = {
    // <main>
