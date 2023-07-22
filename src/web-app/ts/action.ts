@@ -2,30 +2,32 @@
 // Web Application - Actions
 
 import { fetchJson } from 'fetch-json';
-import { app }       from './app';
+
+import { appLookup } from './lookup.js';
+import { appUi } from './ui.js';
 
 const appAction = {
    getBooks(): void {
       const path = 'books';
-      app.ui.logApiCall('GET', path);
-      fetchJson.get(app.lookup.apiServer + path).then(app.ui.handleBooks);
+      appUi.logApiCall('GET', path);
+      fetchJson.get(appLookup.apiServer + path).then(appUi.handleBooks);
       },
    getBook(button: HTMLElement): void {
       const id = button.dataset.book;
       const path = 'books/' + id;
-      app.ui.logApiCall('GET', path);
-      fetchJson.get(app.lookup.apiServer + path).then(app.ui.handleBooks);
+      appUi.logApiCall('GET', path);
+      fetchJson.get(appLookup.apiServer + path).then(appUi.handleBooks);
       },
    deleteBook(button: HTMLElement): void {
       const id = button.dataset.book;
       const path = 'books/' + id;
-      app.ui.logApiCall('DELETE', path);
-      fetchJson.delete(app.lookup.apiServer + path).then(app.ui.handleBooks);
+      appUi.logApiCall('DELETE', path);
+      fetchJson.delete(appLookup.apiServer + path).then(appUi.handleBooks);
       },
    bogus(): void {
       const path = 'bogus';
-      app.ui.logApiCall('GET', path);
-      fetchJson.get(app.lookup.apiServer + path).then(app.ui.handleBooks);
+      appUi.logApiCall('GET', path);
+      fetchJson.get(appLookup.apiServer + path).then(appUi.handleBooks);
       },
    };
 

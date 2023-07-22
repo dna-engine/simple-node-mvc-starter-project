@@ -2,15 +2,16 @@
 // API Server App
 
 import { AddressInfo } from 'net';
-import { Server } from 'http';
-import { config } from './config.js';
-import { log } from './system/log.js';
 import { RequestHandler } from 'express';
-import { restError } from './system/rest-error.js';
-import { routeTable } from './route-table.js';
+import { Server } from 'http';
 import cors           from 'cors';
 import express        from 'express';
 import httpTerminator from 'http-terminator';
+
+import { config } from './config.js';
+import { log } from './system/log.js';
+import { restError } from './system/rest-error.js';
+import { routeTable } from './route-table.js';
 
 export type ServerAppState = {
    apiServer:  Server | null,
