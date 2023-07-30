@@ -3,8 +3,8 @@
 
 import { prettyPrintJson } from 'pretty-print-json';
 
-import { appLookup } from './lookup.js';
-import { JsonData } from '../../models/types';
+import { appLookup } from './lookup';
+import { JsonData } from '../../../types/global';
 
 const appUi = {
    // <main>

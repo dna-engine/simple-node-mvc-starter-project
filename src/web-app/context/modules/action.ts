@@ -3,8 +3,8 @@
 
 import { fetchJson } from 'fetch-json';
 
-import { appLookup } from './lookup.js';
-import { appUi } from './ui.js';
+import { appLookup } from './lookup';
+import { appUi } from './ui';
 
 const appAction = {
    getBooks(): void {

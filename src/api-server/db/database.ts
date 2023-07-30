@@ -4,7 +4,7 @@
 import loki           from 'lokijs';
 import { config }     from '../config.js';
 import { dataset }    from './dataset.js';
-import { JsonObject } from '../../models/types.js';
+import { JsonObject } from '../../types/global.js';
 import { log }        from '../system/log.js';
 
 export type Document = JsonObject;

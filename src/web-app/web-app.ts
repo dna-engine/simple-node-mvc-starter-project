@@ -4,25 +4,24 @@
 import { dna }       from 'dna-engine';
 import { fetchJson } from 'fetch-json';
 
-import { appAction } from './modules/action.js';
-import { appConfig } from './modules/config.js';
-import { appLookup } from './modules/lookup.js';
-import { appUi }     from './modules/ui.js';
-import { appUtils }  from './modules/utils.js';
+import { appAction } from './context/modules/action';
+import { appConfig } from './context/modules/config';
+import { appLookup } from './context/modules/lookup';
+import { appUi }     from './context/modules/ui';
+import { appUtils }  from './context/modules/utils';
 
-const app = {
+const webApp = {
    config: appConfig,
    utils:  appUtils,
    ui:     appUi,
    action: appAction,
    lookup: appLookup,
    setup(): void {
-      dna.registerContext('app', app);  //enable dna to see app object even after module bundling
       fetchJson.enableLogger();
       console.log('simple-node-mvc-starter-project', appLookup.apiServer);
       },
    };
 
-dna.dom.onReady(app.setup);
+dna.dom.onReady(webApp.setup);
 
-export default app;
+export default webApp;

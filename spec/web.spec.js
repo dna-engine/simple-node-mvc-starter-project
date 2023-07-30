@@ -7,7 +7,7 @@ import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
 import { browserReady } from 'puppeteer-browser-ready';
 
 // Setup
-const webRoot = process.env.webRoot || 'src/web-app';
+const webRoot = process.env.webRoot || 'dist/web-app';
 let http;  //fields: server, terminator, folder, url, port, verbose
 let web;   //fields: browser, page, response, status, location, title, html, $
 const loadWebPage =  async () => web = await puppeteer.launch().then(browserReady.goto(http.url));

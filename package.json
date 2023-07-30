@@ -54,31 +54,39 @@
       "clean": [
          "rimraf build dist"
       ],
-      "build": [
+      "bundle-js": [
+         "rollup build/1-pre/web-app/web-app.js --file build/2-dev/web-app/web-app.js --name webApp --format iife --globals dna-engine:globalThis,fetch-json:globalThis,pretty-print-json:globalThis"
+      ],
+      "build-1-pre": [
          "jshint . --exclude-path .gitignore",
          "eslint --max-warnings 0 . --ext .ts",
-         "tsc",
-         "copy-folder src/web-app --ext=.html build/2-dev/web-app",
-         "html-validator build/2-dev",
-         "rollup build/1-pre/web-app/app.js --file build/2-dev/web-app/app.bundle.js --name app --format iife --globals dna-engine:globalThis,fetch-json:globalThis,pretty-print-json:globalThis",
-         "copy-folder src/web-app --ext=.html build/3-min/web-app",
-         "uglifyjs build/2-dev/web-app/app.bundle.js --output build/3-min/web-app/app.bundle.js",
-         "rev-web-assets build/3-min/web-app build/4-rev/web-app"
+         "tsc"
       ],
-      "dist": [
+      "build-2-dev": [
+         "copy-folder src/web-app/context/assets/graphics build/2-dev/web-app/graphics",
+         "replacer src/web-app/web-app.html build/2-dev/web-app --rename=index.html --pkg",
+         "run-scripts bundle-js"
+      ],
+      "build-3-min": [
+         "copy-folder build/2-dev/web-app --ext=.html,.png build/3-min/web-app",
+         "uglifyjs build/2-dev/web-app/web-app.js --output build/3-min/web-app/web-app.js"
+      ],
+      "build-4-rev": [
+         "rev-web-assets build/3-min/web-app build/4-rev/web-app",
          "copy-folder build/1-pre/api-server --ext=.js dist/api-server",
-         "add-dist-header build/4-rev/web-app dist/web-app"
+         "add-dist-header build/4-rev/web-app dist/web-app",
+         "html-validator dist/web-app"
       ],
       "dev": [
          "tsc --watch",
-         "chokidar 'src/web-app/**/*.html' --command 'npm run step:20'",
-         "chokidar 'build/1-pre/web-app/**/*.js' --command 'rollup --config'",
+         "chokidar 'src/web-app/**/*.html' --command 'run-scripts build-2-dev'",
+         "chokidar 'build/1-pre/web-app/**/*.js' --command 'run-scripts bundle-js'",
          "nodemon --watch server.js --watch build/1-pre/api-server",
          "browser-sync build/2-dev/web-app --watch"
       ]
    },
    "scripts": {
-      "pretest": "run-scripts clean build dist",
+      "pretest": "run-scripts clean build-1-pre build-2-dev build-3-min build-4-rev --verbose",
       "test": "mocha spec/*.spec.js --require spec/fixtures/setup-teardown.js --timeout 5000",
       "dev": "npm test && run-scripts dev --parallel",
       "prod": "NODE_ENV=production npm start"
@@ -90,16 +98,18 @@
       "express": "~4.18",
       "fetch-json": "~3.2",
       "http-terminator": "~3.2",
-      "lokijs": "~1.5"
+      "lokijs": "~1.5",
+      "pretty-print-json": "~2.0"
    },
    "devDependencies": {
+      "@fortawesome/fontawesome-free": "~6.4",
       "@types/cors": "~2.8",
       "@types/express": "~4.17",
       "@types/gapi.auth2": "~0.0",
       "@types/lokijs": "~1.5",
       "@types/node": "~20.4",
-      "@typescript-eslint/eslint-plugin": "~6.1",
-      "@typescript-eslint/parser": "~6.1",
+      "@typescript-eslint/eslint-plugin": "~6.2",
+      "@typescript-eslint/parser": "~6.2",
       "add-dist-header": "~1.1",
       "assert-deep-strict-equal": "~1.1",
       "browser-sync": "~2.29",
@@ -108,17 +118,17 @@
       "copy-folder-util": "~1.1",
       "csso-cli": "~4.0",
       "dna-engine": "~3.0",
-      "eslint": "~8.45",
+      "eslint": "~8.46",
       "jshint": "~2.13",
       "mocha": "~10.2",
       "nodemon": "~3.0",
       "open": "~9.1",
-      "pretty-print-json": "~2.0",
       "puppeteer": "~20.9",
       "puppeteer-browser-ready": "~1.2",
+      "replacer-util": "~1.1",
       "rev-web-assets": "~1.2",
       "rimraf": "~5.0",
-      "rollup": "~3.26",
+      "rollup": "~3.27",
       "run-scripts-util": "~1.2",
       "typescript": "~5.1",
       "uglify-js": "~3.17",
