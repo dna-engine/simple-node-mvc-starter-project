@@ -80,7 +80,7 @@
       ],
       "dev": [
          "tsc --watch",
-         "chokidar 'src/web-app/**/*.html' --command 'run-scripts build-2-dev'",
+         "chokidar 'src/web-app/**/*.html'       --command 'run-scripts build-2-dev'",
          "chokidar 'build/1-pre/web-app/**/*.js' --command 'run-scripts bundle-js'",
          "nodemon --watch server.js --watch build/1-pre/api-server",
          "browser-sync . --startPath build/2-dev/web-app/index.html --files build/2-dev/web-app"
@@ -123,7 +123,6 @@
       "jshint": "~2.13",
       "mocha": "~10.2",
       "nodemon": "~3.0",
-      "open": "~9.1",
       "puppeteer": "~21.0",
       "puppeteer-browser-ready": "~1.2",
       "replacer-util": "~1.1",

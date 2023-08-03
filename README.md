@@ -10,13 +10,18 @@ _Simple Node.js MVC starter project_
 ![screenshot](screenshot.png)
 
 Try it out:
-```
+```terminal
 $ git clone https://github.com/dna-engine/simple-node-mvc-starter-project
 $ cd simple-node-mvc-starter-project
 $ npm install
-$ npm test
+$ npm run dev
+```
+
+To run just the API server:
+```terminal
 $ npm start
 ```
+In your browser, open: http://localhost:2121/api/v1/books
 
 <br>
 

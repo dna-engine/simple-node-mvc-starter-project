@@ -28,19 +28,5 @@ setupTools() {
    echo
    }
 
-runSpecs() {
-   cd $projectHome
-   echo "Specifications:"
-   npm test
-   }
-
-startServer() {
-   cd $projectHome
-   echo "Starting server:"
-   npm start
-   echo
-   }
-
 setupTools
-runSpecs
-startServer
+npm run dev
