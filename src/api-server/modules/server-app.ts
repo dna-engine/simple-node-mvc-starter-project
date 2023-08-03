@@ -1,18 +1,21 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // API Server App
 
-import { AddressInfo } from 'net';
+// Imports
+import { AddressInfo }    from 'net';
 import { RequestHandler } from 'express';
-import { Server } from 'http';
-import cors           from 'cors';
-import express        from 'express';
-import httpTerminator from 'http-terminator';
+import { Server }         from 'http';
+import cors               from 'cors';
+import express            from 'express';
+import httpTerminator     from 'http-terminator';
 
-import { config } from './config.js';
-import { log } from './system/log.js';
-import { restError } from './system/rest-error.js';
-import { routeTable } from './route-table.js';
+// Modules
+import { config }     from '../config.js';
+import { log }        from './system/log.js';
+import { restError }  from './system/rest-error.js';
+import { routeTable } from '../controllers/route-table.js';
 
+// Types
 export type ServerAppState = {
    apiServer:  Server | null,
    terminator: httpTerminator.HttpTerminator | null,

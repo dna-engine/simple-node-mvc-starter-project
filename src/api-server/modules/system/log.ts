@@ -1,8 +1,10 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Logging
 
+// Imports
 import chalk from 'chalk';
 
+// Types
 export type LogLevel = 'info' | 'warn' | 'error' | 'debug';
 export type Loggable = string | boolean | number | null | undefined;
 

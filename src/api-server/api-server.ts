@@ -1,9 +1,10 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Startup REST Server and Database
 
-import { database }  from './db/database.js';
-import { log }       from './system/log.js';
-import { serverApp } from './server-app.js';
+// Modules
+import { database }  from './modules/db/database.js';
+import { log }       from './modules/system/log.js';
+import { serverApp } from './modules/server-app.js';
 
 const api = {
    start(): Promise<void> {

@@ -4,8 +4,8 @@
 
 // Imports
 import { browserReady } from 'puppeteer-browser-ready';
-import fs from 'fs';
-import open             from 'open';
+import fs   from 'fs';
+import open from 'open';
 
 // Configuration
 const config = {
@@ -29,9 +29,9 @@ console.log('Mode:      ', mode);
 console.log('API server:', apiFolder);
 console.log('Web root:  ', browser ? webFolder : 'n/a');
 const startWebServer = async () => {
-   const http = await browserReady.startWebServer({ folder: webFolder, port: webPort });
-   open(http.url);
+   const http = await browserReady.startWebServer({ folder: '.', port: webPort });
+   open(http.url + webFolder);
    };
-import('./' + apiFolder + '/index.js')
+import('./' + apiFolder + '/api-server.js')
    .then(module => module.api.start())
    .then(() => browser && startWebServer());

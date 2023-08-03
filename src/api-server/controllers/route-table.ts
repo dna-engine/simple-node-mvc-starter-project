@@ -1,9 +1,12 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Routes
 
+// Imports
 import express, { RequestHandler } from 'express';
-import { bookController } from './controllers/book-controller.js';
-import { log } from './system/log.js';
+
+// Modules
+import { bookController } from './book-controller.js';
+import { log }            from '../modules/system/log.js';
 
 // Utilities
 const logRestRequest: RequestHandler = (request, response, next) => {

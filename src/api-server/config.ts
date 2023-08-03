@@ -1,8 +1,10 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Configuration
 
+// Imports
 import dotenv from 'dotenv';
 
+// Types
 export type Config = typeof config;
 
 dotenv.config();

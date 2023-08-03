@@ -1,10 +1,12 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Web Application - Actions
 
+// Imports
 import { fetchJson } from 'fetch-json';
 
+// Modules
 import { appLookup } from './lookup';
-import { appUi } from './ui';
+import { appUi }     from './ui';
 
 const appAction = {
    getBooks(): void {

@@ -1,6 +1,7 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // REST Error
 
+// Types
 export type RestError = {
    error:   boolean,
    code:    number,

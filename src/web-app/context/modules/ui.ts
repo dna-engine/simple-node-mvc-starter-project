@@ -1,10 +1,12 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Web Application - UI
 
+// Imports
 import { prettyPrintJson } from 'pretty-print-json';
 
+// Modules
 import { appLookup } from './lookup';
-import { JsonData } from '../../../types/global';
+import { JsonData }  from '../../../types/global';
 
 const appUi = {
    // <main>

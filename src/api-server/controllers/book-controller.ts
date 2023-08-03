@@ -1,10 +1,14 @@
 // simple-node-mvc-starter-project ~~ MIT License
 // Book Controller
 
+// Imports
 import express from 'express';
-import { database, Document }  from '../db/database.js';
-import { restError } from '../system/rest-error.js';
 
+// Modules
+import { database, Document } from '../modules/db/database.js';
+import { restError }          from '../modules/system/rest-error.js';
+
+// Types
 export type DocumentBook = {
    id:     number,
    title:  string,
@@ -30,9 +34,9 @@ const bookController = {
       response.json(resource);
       },
    read(request: express.Request, response: express.Response): void {
-      const id =   request.params.id!;
-      const db =   database.getDb();
-      const data = <Document>db.collection('books').findOne({ id: Number(id) });
+      const id =       request.params.id!;
+      const db =       database.getDb();
+      const data =     <Document>db.collection('books').findOne({ id: Number(id) });
       const resource = data ? model.book(data) : restError.notFound();
       response.json(resource);
       },
@@ -42,9 +46,9 @@ const bookController = {
       response.json(resource);
       },
    delete(request: express.Request, response: express.Response): void {
-      const id =   request.params.id!;
-      const db =   database.getDb();
-      const data = db.collection('books').findOne({ id: Number(id) });
+      const id =       request.params.id!;
+      const db =       database.getDb();
+      const data =     db.collection('books').findOne({ id: Number(id) });
       const resource = data ? restError.notImplemented() : restError.notFound();
       response.json(resource);
       },

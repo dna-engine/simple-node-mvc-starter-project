@@ -2,8 +2,8 @@
 // Mocha Setup/Teardown
 
 // Imports
-import { api }       from '../../dist/api-server/index.js';
-import { serverApp } from '../../dist/api-server/server-app.js';
+import { api } from '../../dist/api-server/api-server.js';
+import { serverApp } from '../../dist/api-server/modules/server-app.js';
 
 // Setup
 const mochaGlobalSetup = () => {
