@@ -64,7 +64,7 @@
       ],
       "build-2-dev": [
          "copy-folder src/web-app/context/assets/graphics build/2-dev/web-app/graphics",
-         "replacer src/web-app/web-app.html build/2-dev/web-app --rename=index.html --pkg",
+         "replacer src/web-app --ext=.html --exclude=context build/2-dev/web-app --rename=index.html --pkg",
          "run-scripts bundle-js"
       ],
       "build-3-min": [
@@ -73,9 +73,9 @@
       ],
       "build-4-rev": [
          "rev-web-assets build/3-min/web-app build/4-rev/web-app",
-         "copy-folder build/1-pre/api-server --ext=.js dist/api-server",
-         "copy-folder     build/4-rev/web-app/graphics dist/web-app/graphics",
-         "add-dist-header build/4-rev/web-app          dist/web-app",
+         "copy-folder build/1-pre/api-server --ext=.js     dist/api-server",
+         "copy-folder     build/4-rev/web-app/graphics     dist/web-app/graphics",
+         "add-dist-header build/4-rev/web-app --recursive  dist/web-app",
          "html-validator dist/web-app"
       ],
       "dev": [
@@ -83,7 +83,7 @@
          "chokidar 'src/web-app/**/*.html'       --command 'run-scripts build-2-dev'",
          "chokidar 'build/1-pre/web-app/**/*.js' --command 'run-scripts bundle-js'",
          "nodemon --watch server.js --watch build/1-pre/api-server",
-         "browser-sync . --startPath build/2-dev/web-app/index.html --files build/2-dev/web-app"
+         "browser-sync . --startPath build/2-dev/web-app --files build/2-dev/web-app"
       ]
    },
    "scripts": {
@@ -111,7 +111,7 @@
       "@types/node": "~20.4",
       "@typescript-eslint/eslint-plugin": "~6.2",
       "@typescript-eslint/parser": "~6.2",
-      "add-dist-header": "~1.1",
+      "add-dist-header": "~1.2",
       "assert-deep-strict-equal": "~1.1",
       "browser-sync": "~2.29",
       "chokidar-cli": "~3.0",
@@ -125,7 +125,7 @@
       "nodemon": "~3.0",
       "puppeteer": "~21.0",
       "puppeteer-browser-ready": "~1.2",
-      "replacer-util": "~1.1",
+      "replacer-util": "~1.2",
       "rev-web-assets": "~1.3",
       "rimraf": "~5.0",
       "rollup": "~3.27",

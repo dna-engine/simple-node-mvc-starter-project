@@ -1,12 +1,8 @@
 {% assign webRoot = '.' %}
 {% render 'src/web-app/context/html/doc-begin.html', webRoot: webRoot %}
 
-<header>
-   <h1>🚀 Books 🪐</h1>
-   <a id=fork-me href={{pkg.homepage}}>Fork me on GitHub</a>
-</header>
-
 <main>
+   <h2>REST API Actions</h2>
    <p>
       <button data-on-click=webApp.action.getBook data-book=3001>Get Book 1</button>
       <button data-on-click=webApp.action.getBook data-book=3002>Get Book 2</button>
@@ -26,8 +22,4 @@
    <pre><output></output></pre>
 </main>
 
-<footer>
-</footer>
-
-</body>
-</html>
+{% render 'src/web-app/context/html/doc-end.html', webRoot: webRoot %}
