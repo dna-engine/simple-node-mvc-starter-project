@@ -37,7 +37,7 @@ const serverApp = {
       const handleInvalidRoute: RequestHandler = (request, response) => {
          if (request.url !== '/favicon.ico')
             log.warn('api-server', 'invalid-route', request.url);
-         return response.json(restError.notFound('No route'));
+         return response.json(restError.notFound('No route.'));
          };
       const apiApp = express();
       apiApp.use(cors());

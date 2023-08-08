@@ -1,5 +1,6 @@
 {% assign webRoot = '..' %}
-{% render 'src/web-app/context/html/doc-begin.html', webRoot: webRoot %}
+{% assign pageCode = 'about' %}
+{% render 'src/web-app/context/html/doc-begin.html', webRoot: webRoot, pageCode: pageCode %}
 
 <main>
    <h2>About</h2>
@@ -8,4 +9,4 @@
    </p>
 </main>
 
-{% render 'src/web-app/context/html/doc-end.html', webRoot: webRoot %}
+{% render 'src/web-app/context/html/doc-end.html', webRoot: webRoot, pageCode: pageCode %}

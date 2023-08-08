@@ -1,0 +1,35 @@
+// Style Utilities (mixins)
+
+.AllCaps() {
+   letter-spacing: 0.1em;
+   text-transform: uppercase;
+   }
+
+.Bullseye() {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   }
+
+.EllipsisLongText(@maxWidth: 20em) {
+   max-width: @maxWidth;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   }
+
+.HoverColors(@color; @hoverColor; @background; @hoverBackground) {
+   color: @color;
+   background-color: @background;
+   transition: all 400ms;
+   &:hover {
+      color: @hoverColor;
+      background-color: @hoverBackground;
+      }
+   }
+
+.MobileMode(@lessRules) {
+   @media (max-width: 667px) {  //selects iPhone 6/6s/7/8/SE2/SE3 landscape and anything narrower
+      @lessRules();
+      }
+   }

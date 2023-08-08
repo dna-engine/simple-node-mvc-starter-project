@@ -55,7 +55,8 @@
          "rimraf build dist"
       ],
       "bundle-js": [
-         "rollup build/1-pre/web-app/web-app.js --file build/2-dev/web-app/web-app.js --name webApp --format iife --globals dna-engine:globalThis,fetch-json:globalThis,pretty-print-json:globalThis"
+         "rollup build/1-pre/web-app/web-app.js     --file build/2-dev/web-app/web-app.js     --name webApp --format iife --globals dna-engine:globalThis,fetch-json:globalThis,pretty-print-json:globalThis",
+         "rollup build/1-pre/web-app/about/about.js --file build/2-dev/web-app/about/about.js --name webApp --format iife --globals dna-engine:globalThis,fetch-json:globalThis,pretty-print-json:globalThis"
       ],
       "build-1-pre": [
          "jshint . --exclude-path .gitignore",
@@ -65,11 +66,18 @@
       "build-2-dev": [
          "copy-folder src/web-app/context/assets/graphics build/2-dev/web-app/graphics",
          "replacer src/web-app --ext=.html --exclude=context build/2-dev/web-app --rename=index.html --pkg",
+         "lessc src/web-app/context/common/common.less    build/2-dev/web-app/common.css",
+         "lessc src/web-app/web-app.less                  build/2-dev/web-app/web-app.css",
+         "lessc src/web-app/about/about.less              build/2-dev/web-app/about/about.css",
          "run-scripts bundle-js"
       ],
       "build-3-min": [
-         "copy-folder build/2-dev/web-app --ext=.html,.png build/3-min/web-app",
-         "uglifyjs build/2-dev/web-app/web-app.js --output build/3-min/web-app/web-app.js"
+         "copy-folder build/2-dev/web-app --ext=.html,.png  build/3-min/web-app",
+         "csso build/2-dev/web-app/common.css      --output build/3-min/web-app/common.css",
+         "csso build/2-dev/web-app/web-app.css     --output build/3-min/web-app/web-app.css",
+         "csso build/2-dev/web-app/about/about.css --output build/3-min/web-app/about/about.css",
+         "uglifyjs build/2-dev/web-app/web-app.js  --output build/3-min/web-app/web-app.js",
+         "uglifyjs build/2-dev/web-app/about/about.js --output build/3-min/web-app/about/about.js"
       ],
       "build-4-rev": [
          "rev-web-assets build/3-min/web-app build/4-rev/web-app",
@@ -109,8 +117,8 @@
       "@types/gapi.auth2": "~0.0",
       "@types/lokijs": "~1.5",
       "@types/node": "~20.4",
-      "@typescript-eslint/eslint-plugin": "~6.2",
-      "@typescript-eslint/parser": "~6.2",
+      "@typescript-eslint/eslint-plugin": "~6.3",
+      "@typescript-eslint/parser": "~6.3",
       "add-dist-header": "~1.2",
       "assert-deep-strict-equal": "~1.1",
       "browser-sync": "~2.29",
@@ -121,6 +129,7 @@
       "dna-engine": "~3.0",
       "eslint": "~8.46",
       "jshint": "~2.13",
+      "less": "~4.2",
       "mocha": "~10.2",
       "nodemon": "~3.0",
       "puppeteer": "~21.0",

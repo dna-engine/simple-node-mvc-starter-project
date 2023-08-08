@@ -1,5 +1,6 @@
 {% assign webRoot = '.' %}
-{% render 'src/web-app/context/html/doc-begin.html', webRoot: webRoot %}
+{% assign pageCode = 'web-app' %}
+{% render 'src/web-app/context/html/doc-begin.html', webRoot: webRoot, pageCode: pageCode %}
 
 <main>
    <h2>REST API Actions</h2>
@@ -22,4 +23,4 @@
    <pre><output></output></pre>
 </main>
 
-{% render 'src/web-app/context/html/doc-end.html', webRoot: webRoot %}
+{% render 'src/web-app/context/html/doc-end.html', webRoot: webRoot, pageCode: pageCode %}
