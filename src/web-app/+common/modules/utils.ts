@@ -2,12 +2,12 @@
 // Web Application - Utilities
 
 // Modules
-import { ApiServer } from './config';
+import { ApiServer } from '../../+context/modules/config';
 
-const appUtils = {
+const utils = {
    isCurrentWebsite(server: ApiServer): boolean {
       return server.website === globalThis.location.hostname;
       },
    };
 
-export { appUtils };
+export { utils };

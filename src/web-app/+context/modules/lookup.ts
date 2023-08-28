@@ -3,10 +3,10 @@
 
 // Modules
 import { appConfig } from './config';
-import { appUtils }  from './utils';
+import { utils }  from '../../+common/modules/utils';
 
 const appLookup = {
-   apiServer: appConfig.apiServers.find(appUtils.isCurrentWebsite)?.api,
+   apiServer: appConfig.apiServers.find(utils.isCurrentWebsite)?.api,
    };
 
 export { appLookup };
