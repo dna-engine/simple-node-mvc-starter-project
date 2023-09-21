@@ -9,7 +9,7 @@ import { browserReady } from 'puppeteer-browser-ready';
 // Setup
 const webRoot = process.env.webRoot || 'dist/web-app';
 let http;  //fields: server, terminator, folder, url, port, verbose
-let web;   //fields: browser, page, response, status, location, title, html, $
+let web;   //fields: browser, page, response, status, location, title, html, root
 const loadWebPage =  async () => web = await puppeteer.launch().then(browserReady.goto(http.url));
 const closeWebPage = async () => await browserReady.close(web);
 before(async () => http = await browserReady.startWebServer({ folder: webRoot }));
@@ -26,17 +26,22 @@ describe('The web page', () => {
       assertDeepStrictEqual(actual, expected);
       });
 
-   it('has a body with exactly one header, main, and footer -- Cheerio', () => {
-      const actual =   web.$('body >*').toArray().map(elem => elem.name);
+   it('title is "Books"', () => {
+      const actual =   { title: web.title };
+      const expected = { title: 'Books' };
+      assertDeepStrictEqual(actual, expected);
+      });
+
+   it('body has exactly one header, main, and footer -- node-html-parsed', () => {
+      const getTags =  (elems) => [...elems].map(elem => elem.tagName.toLowerCase());
+      const actual =   getTags(web.root.querySelectorAll('body >*'));
       const expected = ['header', 'main', 'footer'];
       assertDeepStrictEqual(actual, expected);
       });
 
-   it('has a body with exactly one header, main, and footer -- page.evaluate()', async () => {
-      const actual = await web.page.evaluate(() => {
-         const elems = globalThis.document.querySelectorAll('body >*');
-         return [...elems].map(elem => elem.nodeName.toLowerCase());
-         });
+   it('body has exactly one header, main, and footer -- page.$$eval()', async () => {
+      const getTags =  (elems) => elems.map(elem => elem.nodeName.toLowerCase());
+      const actual =   await web.page.$$eval('body >*', getTags);
       const expected = ['header', 'main', 'footer'];
       assertDeepStrictEqual(actual, expected);
       });
