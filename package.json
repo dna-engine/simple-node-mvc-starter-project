@@ -6,7 +6,10 @@
    "type": "module",
    "module": "server.js",
    "main": "server.js",
-   "repository": "github:dna-engine/simple-node-mvc-starter-project",
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/dna-engine/simple-node-mvc-starter-project.git"
+   },
    "homepage": "https://github.com/dna-engine/simple-node-mvc-starter-project",
    "bugs": "https://github.com/dna-engine/simple-node-mvc-starter-project/issues",
    "docs": "https://github.com/dna-engine/simple-node-mvc-starter-project#readme",
@@ -63,20 +66,20 @@
          "tsc"
       ],
       "build2-dev": [
-         "copy-folder src/web-app/+common --ext=.jpg,.png     build/2-dev/web-app",
-         "replacer src/web-app --ext=.html --exclude=+context build/2-dev/web-app --rename=index.html --pkg",
-         "lessc src/web-app/+common/common.less               build/2-dev/web-app/common.css",
+         "copy-folder src/web-app/+common --ext=.jpg,.png    build/2-dev/web-app",
+         "replacer src/web-app --ext=.html --exclude=+ --pkg build/2-dev/web-app --rename=index.html",
+         "lessc src/web-app/+common/common.less              build/2-dev/web-app/common.css",
          "recursive-exec src/web-app --ext=.less --exclude=+ 'lessc {{file}} build/2-dev/web-app/{{basename}}.css'",
          "run-scripts bundle-js"
       ],
       "build3-min": [
-         "copy-folder build/2-dev/web-app --ext=.html,.png  build/3-min/web-app",
-         "recursive-exec build/2-dev/web-app --ext=.css 'csso {{file}} --output build/3-min/web-app/{{filename}}'",
+         "copy-folder    build/2-dev/web-app --ext=.html,.png                      build/3-min/web-app",
+         "recursive-exec build/2-dev/web-app --ext=.css 'csso {{file}} --output    build/3-min/web-app/{{filename}}'",
          "recursive-exec build/2-dev/web-app --ext=.js 'uglifyjs {{file}} --output build/3-min/web-app/{{filename}}'"
       ],
       "build4-rev": [
-         "rev-web-assets build/3-min/web-app build/4-rev/web-app",
-         "copy-folder build/1-pre/api-server --ext=.js     dist/api-server",
+         "rev-web-assets  build/3-min/web-app build/4-rev/web-app",
+         "copy-folder     build/1-pre/api-server --ext=.js dist/api-server",
          "copy-folder     build/4-rev/web-app/assets       dist/web-app/assets",
          "add-dist-header build/4-rev/web-app --recursive  dist/web-app",
          "html-validator dist/web-app"
@@ -122,7 +125,7 @@
       "copy-folder-util": "~1.1",
       "csso-cli": "~4.0",
       "dna-engine": "~3.0",
-      "eslint": "~8.49",
+      "eslint": "~8.50",
       "jshint": "~2.13",
       "less": "~4.2",
       "mocha": "~10.2",
