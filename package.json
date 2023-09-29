@@ -66,9 +66,9 @@
          "tsc"
       ],
       "build2-dev": [
-         "copy-folder src/web-app/+common --ext=.jpg,.png    build/2-dev/web-app",
-         "replacer src/web-app --ext=.html --exclude=+ --pkg build/2-dev/web-app --rename=index.html",
-         "lessc src/web-app/+common/common.less              build/2-dev/web-app/common.css",
+         "copy-folder src/web-app/+common --ext=.jpg,.png build/2-dev/web-app",
+         "replacer src/web-app --ext=.html --exclude=+    build/2-dev/web-app --rename=index.html",
+         "lessc src/web-app/+common/common.less           build/2-dev/web-app/common.css",
          "recursive-exec src/web-app --ext=.less --exclude=+ 'lessc {{file}} build/2-dev/web-app/{{basename}}.css'",
          "run-scripts bundle-js"
       ],
@@ -114,7 +114,7 @@
       "@types/express": "~4.17",
       "@types/gapi.auth2": "~0.0",
       "@types/lokijs": "~1.5",
-      "@types/node": "~20.6",
+      "@types/node": "~20.7",
       "@typescript-eslint/eslint-plugin": "~6.7",
       "@typescript-eslint/parser": "~6.7",
       "add-dist-header": "~1.3",
