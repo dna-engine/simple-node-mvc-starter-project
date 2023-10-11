@@ -2,7 +2,7 @@
 // Web Application - Utilities
 
 // Modules
-import { ApiServer } from '../../+context/modules/config';
+import { ApiServer } from '../../+page/modules/config';
 
 const utils = {
    isCurrentWebsite(server: ApiServer): boolean {

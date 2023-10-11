@@ -5,8 +5,8 @@
 import { dna } from 'dna-engine';
 
 // Modules
-import { aboutHello } from './+context/modules/hello';
-import { appLookup } from '../+context/modules/lookup';
+import { aboutHello } from './+page/modules/hello';
+import { appLookup } from '../+page/modules/lookup';
 
 const about = {
    setup(): void {

@@ -6,8 +6,8 @@ import { dna }       from 'dna-engine';
 import { fetchJson } from 'fetch-json';
 
 // Modules
-import { appAction } from './+context/modules/action';
-import { appLookup } from './+context/modules/lookup';
+import { appAction } from './+page/modules/action';
+import { appLookup } from './+page/modules/lookup';
 
 const webApp = {
    action: appAction,  //context for HTML: <button data-on-click=webApp.action.getBooks>
