@@ -1,5 +1,5 @@
 // simple-node-mvc-starter-project ~~ MIT License
-// Hello
+// About Hello
 
 const aboutHello = {
    world() {
