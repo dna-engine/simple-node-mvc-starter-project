@@ -5,6 +5,7 @@
 import { dna } from 'dna-engine';
 
 // Modules
+import { aboutCompany } from './+page/modules/company';
 import { aboutHello } from './+page/modules/hello';
 import { appLookup } from '../+page/modules/lookup';
 
@@ -12,6 +13,7 @@ const about = {
    setup(): void {
       console.log('About', appLookup.apiServer);
       aboutHello.world();
+      aboutCompany.mission();
       },
    };
 

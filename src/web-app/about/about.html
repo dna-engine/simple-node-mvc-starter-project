@@ -3,9 +3,25 @@
 
 <main>
    <h2>About</h2>
-   <p>
-      This is a simple Node.js MVC starter project.
-   </p>
+   <nav class=dna-menu data-style=flat-tabs>
+      <span>Menu item #1</span>
+      <span>Menu item #2</span>
+      <span>Menu item #3</span>
+   </nav>
+   <div class=dna-panels>
+      <section>
+         <h2>Panel #1</h2>
+         <p>Content of Panel</p>
+      </section>
+      <section>
+         <h2>Panel #2</h2>
+         <p>Content of Panel</p>
+      </section>
+      <section>
+         <h2>Panel #3</h2>
+         <p>Content of Panel</p>
+      </section>
+   </div>
 </main>
 
 {% render 'src/web-app/+common/html/doc-end.html', webRoot: webRoot %}
