@@ -3,7 +3,7 @@
 
 _Simple Node.js MVC starter project_
 
-[![Build](https://github.com/dna-engine/simple-node-mvc-starter-project/workflows/build/badge.svg)](https://github.com/dna-engine/simple-node-mvc-starter-project/actions/workflows/run-spec-on-push.yaml)
+[![Build](https://github.com/dna-engine/simple-node-mvc-starter-project/actions/workflows/run-spec-on-push.yaml/badge.svg)](https://github.com/dna-engine/simple-node-mvc-starter-project/actions/workflows/run-spec-on-push.yaml)
 
 **STATUS:** Early development (not even pre-alpha)
 
