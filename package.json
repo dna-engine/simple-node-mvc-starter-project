@@ -34,25 +34,6 @@
          "fetchJson": true
       }
    },
-   "eslintConfig": {
-      "ignorePatterns": [
-         "build",
-         "dist",
-         "node_modules"
-      ],
-      "root": true,
-      "parser": "@typescript-eslint/parser",
-      "plugins": [
-         "@typescript-eslint"
-      ],
-      "extends": [
-         "eslint:recommended",
-         "plugin:@typescript-eslint/recommended"
-      ],
-      "rules": {
-         "@typescript-eslint/no-non-null-assertion": "off"
-      }
-   },
    "runScriptsConfig": {
       "clean": [
          "rimraf build dist"
@@ -62,7 +43,7 @@
       ],
       "build1-pre": [
          "jshint . --exclude-path .gitignore",
-         "eslint --max-warnings 0 . --ext .ts",
+         "eslint --max-warnings 0",
          "tsc",
          "replacer src/web-app --ext=.html --exclude=+ build/1-pre/web-app --rename=index.html"
       ],
@@ -114,13 +95,13 @@
       "pretty-print-json": "~3.0"
    },
    "devDependencies": {
-      "@eslint/js": "~9.6",
-      "@fortawesome/fontawesome-free": "~6.5",
+      "@eslint/js": "~9.9",
+      "@fortawesome/fontawesome-free": "~6.6",
       "@types/cors": "~2.8",
       "@types/express": "~4.17",
       "@types/gapi.auth2": "~0.0",
       "@types/lokijs": "~1.5",
-      "@types/node": "~20.14",
+      "@types/node": "~22.2",
       "add-dist-header": "~1.4",
       "assert-deep-strict-equal": "~1.2",
       "browser-sync": "~3.0",
@@ -129,22 +110,22 @@
       "copy-folder-util": "~1.1",
       "csso-cli": "~4.0",
       "dna-engine": "~3.2",
-      "eslint": "8.57.0",
+      "eslint": "~9.9",
       "img-src-placeholder": "~1.1",
       "jshint": "~2.13",
       "less": "~4.2",
-      "mocha": "~10.5",
-      "puppeteer": "~22.12",
+      "mocha": "~10.7",
+      "puppeteer": "~23.0",
       "puppeteer-browser-ready": "~1.3",
       "recursive-exec": "~1.0",
       "replacer-util": "~1.3",
-      "rev-web-assets": "~1.3",
-      "rimraf": "~5.0",
-      "rollup": "~4.18",
-      "run-scripts-util": "~1.2",
+      "rev-web-assets": "~1.4",
+      "rimraf": "~6.0",
+      "rollup": "~4.20",
+      "run-scripts-util": "~1.3",
       "typescript": "~5.5",
-      "typescript-eslint": "~7.14",
-      "uglify-js": "~3.18",
+      "typescript-eslint": "~8.1",
+      "uglify-js": "~3.19",
       "w3c-html-validator": "~1.8",
       "web-ignition": "~2.2"
    }

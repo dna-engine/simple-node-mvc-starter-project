@@ -27,7 +27,8 @@ const serverApp = {
       terminator: null,
       },
    port(): number | null {
-      return (<AddressInfo>serverApp.state.apiServer?.address()).port ?? null;
+      const apiServer = serverApp.state.apiServer;
+      return apiServer ? (<AddressInfo>apiServer.address()).port : null;
       },
    status(): string {
       return serverApp.state.apiServer?.listening ? 'active' : 'inactive';

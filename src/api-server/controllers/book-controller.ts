@@ -36,7 +36,7 @@ const bookController = {
    read(request: express.Request, response: express.Response): void {
       const id =       request.params.id!;
       const db =       database.getDb();
-      const data =     <Document>db.collection('books').findOne({ id: Number(id) });
+      const data =     db.collection('books').findOne({ id: Number(id) });
       const resource = data ? model.book(data) : restError.notFound();
       response.json(resource);
       },
