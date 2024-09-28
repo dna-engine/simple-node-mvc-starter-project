@@ -2,12 +2,11 @@
 // API Server App
 
 // Imports
-import { AddressInfo }    from 'net';
-import { RequestHandler } from 'express';
-import { Server }         from 'http';
-import cors               from 'cors';
-import express            from 'express';
-import httpTerminator     from 'http-terminator';
+import { AddressInfo } from 'net';
+import { Server }      from 'http';
+import cors            from 'cors';
+import express         from 'express';
+import httpTerminator  from 'http-terminator';
 
 // Modules
 import { config }     from '../config.js';
@@ -35,10 +34,10 @@ const serverApp = {
       },
    start(): Promise<Server> {
       log.info('config', 'loaded', config.apiServer.port);
-      const handleInvalidRoute: RequestHandler = (request, response) => {
+      const handleInvalidRoute = (request: express.Request, response: express.Response) => {
          if (request.url !== '/favicon.ico')
             log.warn('api-server', 'invalid-route', request.url);
-         return response.json(restError.notFound('No route.'));
+         response.json(restError.notFound('No route.'));
          };
       const apiApp = express();
       apiApp.use(cors());
