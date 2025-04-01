@@ -43,7 +43,7 @@ const serverApp = {
       apiApp.use(cors());
       apiApp.use(express.json());
       apiApp.use('/api/v1', routeTable.createRoutes());
-      apiApp.all('*', handleInvalidRoute);
+      apiApp.all('*splat', handleInvalidRoute);
       let done: (server: Server) => void;
       const apiServer = apiApp.listen(config.apiServer.port);
       serverApp.state.apiServer = apiServer;
