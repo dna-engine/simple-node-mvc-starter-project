@@ -11,7 +11,7 @@ import { appLookup } from '../+page/modules/lookup';
 
 const about = {
    setup(): void {
-      console.log('About', appLookup.apiServer);
+      console.info('About', appLookup.apiServer);
       aboutHello.world();
       aboutCompany.mission();
       },

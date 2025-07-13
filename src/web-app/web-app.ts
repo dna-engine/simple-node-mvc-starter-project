@@ -13,7 +13,7 @@ const webApp = {
    action: appAction,  //context for HTML: <button data-on-click=webApp.action.getBooks>
    setup(): void {
       fetchJson.enableLogger();
-      console.log('simple-node-mvc-starter-project', appLookup.apiServer);
+      console.info('simple-node-mvc-starter-project', appLookup.apiServer);
       },
    };
 

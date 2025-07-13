@@ -10,7 +10,7 @@ import { licenseDetails } from './+page/modules/details';
 
 const license = {
    setup(): void {
-      console.log('Details', appLookup.apiServer);
+      console.info('Details', appLookup.apiServer);
       licenseDetails.show();
       },
    };

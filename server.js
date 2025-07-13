@@ -17,9 +17,9 @@ const apiFolder = process.env.apiFolder ?? config[mode].api;
 const pkg =       JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
 // Start
-console.log(pkg.name);
-console.log(pkg.name.replace(/./g, '='));
-console.log(pkg.description);
-console.log('Mode:      ', mode);
-console.log('API server:', apiFolder);
+console.info(pkg.name);
+console.info(pkg.name.replace(/./g, '='));
+console.info(pkg.description);
+console.info('Mode:      ', mode);
+console.info('API server:', apiFolder);
 import('./' + apiFolder + '/api-server.js').then(module => module.api.start());

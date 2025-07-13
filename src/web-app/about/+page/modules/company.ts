@@ -3,10 +3,10 @@
 
 const aboutCompany = {
    team() {
-      console.log('We have a team.')
+      console.info('We have a team.')
       },
    mission() {
-      console.log('Our mission is to not have a generic useless corporate mission statement.')
+      console.info('Our mission is to not have a generic useless corporate mission statement.')
       },
    };
 

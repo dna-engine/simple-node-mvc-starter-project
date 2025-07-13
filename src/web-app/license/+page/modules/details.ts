@@ -3,7 +3,7 @@
 
 const licenseDetails = {
    show() {
-      console.log('License: MIT')
+      console.info('License: MIT')
       },
    };
 

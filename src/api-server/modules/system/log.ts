@@ -9,7 +9,7 @@ export type LogLevel = 'info' | 'warn' | 'error' | 'debug';
 export type Loggable = string | boolean | number | null | undefined;
 
 const timestamp = (): string => chalk.blue(new Date().toISOString());
-const logger = (level: string) => (...args: Loggable[]) => console.log(timestamp(), level, ...args);
+const logger = (level: string) => (...args: Loggable[]) => console.info(timestamp(), level, ...args);
 
 const log = {
    info:  logger(chalk.white('info')),
