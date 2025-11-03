@@ -1,13 +1,13 @@
-# simple-node-mvc-starter-project ~~ MIT License
+# simple-node-mvc-starter-project
 
-# Secrets and user preferences
+# Secrets and User Preferences
 .env
 
-# Downloaded and generated files
+# Downloaded and Generated Files
 /node_modules/
 /package-lock.json
 /build/
 /dist/
 
-# Extraneous system files
+# Extraneous System Files
 .DS_Store
