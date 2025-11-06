@@ -69,7 +69,7 @@
          "recursive-exec build/2-dev/web-app --ext=.js   {{command:uglifyjs}}"
       ],
       "build4-rev": [
-         "rev-web-assets build/3-min/web-app build/4-rev/web-app --manifest",
+         "rev-web-assets build/3-min/web-app --manifest               build/4-rev/web-app",
          "copy-file build/4-rev/web-app/manifest.json --move --folder build/4-rev"
       ],
       "dist": [
@@ -110,7 +110,7 @@
       "@types/gapi.auth2": "~0.0",
       "@types/lokijs": "~1.5",
       "@types/node": "~24.10",
-      "add-dist-header": "~1.5",
+      "add-dist-header": "~1.6",
       "assert-deep-strict-equal": "~1.2",
       "browser-sync": "~3.0",
       "chokidar-cli": "~3.0",
@@ -119,11 +119,11 @@
       "csso-cli": "~4.0",
       "dna-engine": "~3.3",
       "eslint": "~9.39",
-      "img-src-placeholder": "~1.1",
+      "img-src-placeholder": "~1.2",
       "jshint": "~2.13",
       "less": "~4.4",
       "mocha": "~11.7",
-      "puppeteer": "~24.28",
+      "puppeteer": "~24.29",
       "puppeteer-browser-ready": "~1.4",
       "recursive-exec": "~1.1",
       "replacer-util": "~1.4",

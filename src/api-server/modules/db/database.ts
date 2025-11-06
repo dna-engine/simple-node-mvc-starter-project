@@ -41,7 +41,7 @@ const database = {
          throw new Error('[simple] Database not connected.');
       return database.state.db;
       },
-   addCollection(data: typeof dataset[0]): Collection<Document> {
+   addCollection(data: typeof dataset[number]): Collection<Document> {
       const collection = database.state.client!.addCollection(data.name);
       database.state.collectionMap[data.name] = <Collection<Document>>collection;
       return <Collection<Document>>collection.insert(data.documents);

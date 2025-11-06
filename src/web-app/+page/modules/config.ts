@@ -3,7 +3,7 @@
 
 // Types
 export type AppConfig = typeof appConfig;
-export type ApiServer = AppConfig['apiServers'][0];
+export type ApiServer = AppConfig['apiServers'][number];
 
 const appConfig = {
    restBase: 'http://localhost:2121/api/v1/',
