@@ -75,8 +75,7 @@
       "dist": [
          "copy-folder     build/1-pre/api-server --ext=.js dist/api-server",
          "copy-folder     build/4-rev/web-app/assets       dist/web-app/assets",
-         "add-dist-header build/4-rev/web-app --recursive  dist/web-app",
-         "html-validator                                   dist/web-app"
+         "add-dist-header build/4-rev/web-app --recursive  dist/web-app"
       ],
       "dev": [
          "tsc --watch --preserveWatchOutput",
@@ -89,6 +88,7 @@
    "scripts": {
       "pretest": "run-scripts clean build1-pre build2-dev build3-min build4-rev dist",
       "test": "mocha spec/*.spec.js --require spec/fixtures/setup-teardown.js --timeout 7000",
+      "posttest": "html-validator dist/web-app",
       "dev": "npm test && run-scripts dev --parallel",
       "prod": "NODE_ENV=production npm start"
    },
@@ -96,7 +96,7 @@
       "chalk": "~5.6",
       "cors": "~2.8",
       "dotenv": "~17.2",
-      "express": "~5.1",
+      "express": "~5.2",
       "fetch-json": "~3.3",
       "http-terminator": "~3.2",
       "lokijs": "~1.5",
@@ -115,7 +115,7 @@
       "browser-sync": "~3.0",
       "chokidar-cli": "~3.0",
       "copy-file-util": "~1.3",
-      "copy-folder-util": "~1.1",
+      "copy-folder-util": "~1.2",
       "csso-cli": "~4.0",
       "dna-engine": "~3.3",
       "eslint": "~9.39",
@@ -123,16 +123,16 @@
       "jshint": "~2.13",
       "less": "~4.4",
       "mocha": "~11.7",
-      "puppeteer": "~24.29",
+      "puppeteer": "~24.32",
       "puppeteer-browser-ready": "~1.4",
       "recursive-exec": "~1.1",
-      "replacer-util": "~1.4",
+      "replacer-util": "~1.5",
       "rev-web-assets": "~1.5",
       "rimraf": "~6.1",
-      "rollup": "~4.52",
+      "rollup": "~4.53",
       "run-scripts-util": "~1.3",
       "typescript": "~5.9",
-      "typescript-eslint": "~8.46",
+      "typescript-eslint": "~8.48",
       "uglify-js": "~3.19",
       "w3c-html-validator": "~2.0",
       "web-ignition": "~2.4"
