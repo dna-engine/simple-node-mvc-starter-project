@@ -10,10 +10,12 @@ import { browserReady } from 'puppeteer-browser-ready';
 const webRoot = process.env.webRoot ?? 'dist/web-app';
 let http;  //fields: server, terminator, folder, url, port, verbose
 let web;   //fields: browser, page, response, status, location, title, html, root
-const loadWebPage =  async () => web = await puppeteer.launch().then(browserReady.goto(http.url, { verbose: true }));
-const closeWebPage = async () => await browserReady.close(web);
-before(async () => http = await browserReady.startWebServer({ folder: webRoot }));
-after(async () =>  await browserReady.shutdownWebServer(http));
+before(() => browserReady.startWebServer({ folder: webRoot }).then(info => http = info));
+after(() =>  browserReady.shutdownWebServer(http));
+const loadWebPage = () => puppeteer.launch()
+   .then(browserReady.goto(http.url, { verbose: true }))
+   .then(info => web = info);
+const closeWebPage = () => browserReady.close(web);
 
 ////////////////////////////////////////////////////////////////////////////////
 describe.skip('The web page', () => {  //TODO: Investigate loadWebPage timeout --> await page.goto(url)
