@@ -2,7 +2,7 @@
 // Web App
 
 // Imports
-import { dna } from 'dna-engine';
+import { dna } from 'dna-dom';
 
 // Modules
 import { appLookup } from '../+page/modules/lookup';

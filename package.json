@@ -8,11 +8,11 @@
    "exports": "./server.js",
    "repository": {
       "type": "git",
-      "url": "git+https://github.com/dna-engine/simple-node-mvc-starter-project.git"
+      "url": "git+https://github.com/dna-dom/simple-node-mvc-starter-project.git"
    },
-   "homepage": "https://github.com/dna-engine/simple-node-mvc-starter-project",
-   "bugs": "https://github.com/dna-engine/simple-node-mvc-starter-project/issues",
-   "docs": "https://github.com/dna-engine/simple-node-mvc-starter-project#readme",
+   "homepage": "https://github.com/dna-dom/simple-node-mvc-starter-project",
+   "bugs": "https://github.com/dna-dom/simple-node-mvc-starter-project/issues",
+   "docs": "https://github.com/dna-dom/simple-node-mvc-starter-project#readme",
    "keywords": [
       "jamstack",
       "javascript",
@@ -36,7 +36,7 @@
    },
    "recursiveExecConfig": {
       "commands": {
-         "rollup": "rollup {{file}} --file build/2-dev/web-app/{{filename}} --name {{nameCamelCase}} --format iife --globals dna-engine:globalThis,fetch-json:globalThis,pretty-print-json:globalThis",
+         "rollup": "rollup {{file}} --file build/2-dev/web-app/{{filename}} --name {{nameCamelCase}} --format iife --globals dna-dom:globalThis,fetch-json:globalThis,pretty-print-json:globalThis",
          "lessc": "lessc {{file}} build/2-dev/web-app/{{basename}}.css",
          "csso": "csso {{file}} --output build/3-min/web-app/{{filename}}",
          "uglifyjs": "uglifyjs {{file}} --output build/3-min/web-app/{{filename}}"
@@ -103,7 +103,7 @@
       "pretty-print-json": "~3.0"
    },
    "devDependencies": {
-      "@eslint/js": "~9.39",
+      "@eslint/js": "~10.0",
       "@fortawesome/fontawesome-free": "~7.2",
       "@types/cors": "~2.8",
       "@types/express": "~5.0",
@@ -117,8 +117,8 @@
       "copy-file-util": "~1.3",
       "copy-folder-util": "~1.2",
       "csso-cli": "~4.0",
-      "dna-engine": "~3.3",
-      "eslint": "~9.39",
+      "dna-dom": "~3.3",
+      "eslint": "~10.0",
       "img-src-placeholder": "~1.2",
       "jshint": "~2.13",
       "less": "~4.5",
