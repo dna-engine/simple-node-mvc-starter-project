@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- simple-node-mvc-starter-project v0.0.0 ~~ https://github.com/dna-dom/simple-node-mvc-starter-project ~~ MIT License -->
+<html lang=en>
+<head>
+   <meta charset=utf-8>
+   <meta name=viewport    content="width=device-width, initial-scale=1">
+   <meta name=robots      content="index, follow">
+   <meta name=description content="Example REST operations for books">
+   <title>Books</title>
+   <link rel=icon       href=assets/graphics/bookmark-icon.fb89eb16.png>
+   <link rel=preconnect href=https://fonts.googleapis.com>
+   <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2/css/all.min.css>
+   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/web-ignition@2.5/dist/reset.min.css>
+   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/css/pretty-print-json.prefers.css>
+   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-dom@3.3/dist/dna-dom.css>
+   <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-dom@3.3/dist/panel-nav.css>
+   <link rel=stylesheet href=style.d8173595.css>
+   <link rel=stylesheet href=web-app.3eb5ee9b.css>
+   <script defer src=https://cdn.jsdelivr.net/npm/fetch-json@3.3/dist/fetch-json.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/dna-dom@3.3/dist/dna-dom.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/pretty-print-json.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@2.5/dist/lib-x.min.js></script>
+   <script defer src=web-app.6f2d546a.js></script>
+</head>
+<body>
+
+<header>
+   <h1>🚀 Books 🪐</h1>
+   <a id=fork-me href=https://github.com/dna-dom/simple-node-mvc-starter-project>Fork me on GitHub</a>
+</header>
+
+
+<main>
+   <h2>REST API Actions</h2>
+   <p>
+      <button data-on-click=webApp.action.getBook data-book=3001>Get Book 1</button>
+      <button data-on-click=webApp.action.getBook data-book=3002>Get Book 2</button>
+      <button data-on-click=webApp.action.getBook data-book=3003>Get Book 3</button>
+      <button data-on-click=webApp.action.getBook data-book=3004>Get Book 4</button>
+      <button data-on-click=webApp.action.getBook data-book=3005>Get Book 5</button>
+   </p>
+   <p>
+      <button data-on-click=webApp.action.getBooks>Get All Books</button>
+      <button data-on-click=webApp.action.deleteBook data-book=3001>Delete Book 1</button>
+      <button data-on-click=webApp.action.deleteBook data-book=3004>Delete Book 4</button>
+      <button data-on-click=webApp.action.bogus>Bogus</button>
+   </p>
+   <p>
+      <cite><code></code> <output></output></cite>
+   </p>
+   <pre><output></output></pre>
+</main>
+
+<footer>
+   <p>
+      <a href=.>Home</a>
+      <a href=./about>About</a>
+      <a href=./license>License</a>
+   </p>
+</footer>
+
+</body>
+</html>
