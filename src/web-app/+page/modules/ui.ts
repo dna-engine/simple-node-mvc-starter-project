@@ -5,8 +5,8 @@
 import { prettyPrintJson } from 'pretty-print-json';
 
 // Modules
-import { appLookup } from './lookup';
-import { JsonData }  from '../../../types/global';
+import { appLookup } from './lookup.js';
+import { JsonData }  from '../../../types/global.js';
 
 const appUi = {
    // <main>

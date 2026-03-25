@@ -2,8 +2,8 @@
 // Web Application - Lookup
 
 // Modules
-import { appConfig } from './config';
-import { utils }  from '../../+common/modules/utils';
+import { appConfig } from './config.js';
+import { utils }  from '../../+common/modules/utils.js';
 
 const appLookup = {
    apiServer: appConfig.apiServers.find(utils.isCurrentWebsite)?.api,

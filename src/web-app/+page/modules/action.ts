@@ -5,8 +5,8 @@
 import { fetchJson } from 'fetch-json';
 
 // Modules
-import { appLookup } from './lookup';
-import { appUi }     from './ui';
+import { appLookup } from './lookup.js';
+import { appUi }     from './ui.js';
 
 const appAction = {
    getBooks(): void {
