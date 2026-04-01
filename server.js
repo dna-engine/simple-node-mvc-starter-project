@@ -3,7 +3,7 @@
 // Options: NODE_ENV, apiFolder
 
 // Imports
-import fs from 'fs';
+import fs from 'node:fs';
 
 // Configuration
 const config = {
